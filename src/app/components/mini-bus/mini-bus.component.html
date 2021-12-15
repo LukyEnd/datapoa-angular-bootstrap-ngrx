@@ -1,0 +1,25 @@
+<div class="d-flex flex-column">
+  <h4 class="title mt-3">Linhas de Lotação</h4>
+  <hr class="line-main mb-3" />
+</div>
+
+<table class="table">
+  <thead>
+    <tr table-hover>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Nome da Linha</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Intinerário</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let line of miniBusLine">
+    <tr>
+      <th scope="row">-</th>
+      <td>{{ line.id }}</td>
+      <td>{{ line.nome }}</td>
+      <td>{{ line.codigo }}</td>
+      <button [routerLink]="['/itinerary', line.id]">Ver</button>
+    </tr>
+  </tbody>
+</table>
