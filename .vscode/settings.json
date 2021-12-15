@@ -1,5 +1,8 @@
 {
-    "editor.defaultFormatter": "HookyQR.beautify",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+  "editor.defaultFormatter": "HookyQR.beautify",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -8,10 +8,11 @@ import { ApiBusLine } from '../models/bus-line.model';
   providedIn: 'root',
 })
 export class ServiceService {
+  id!: number;
   urlBus: string =
     'http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%25&t=';
   urlIntinerary: string =
-    'http://www.poatransporte.com.br/php/facades/process.php?a=il&p=5200';
+    'http://www.poatransporte.com.br/php/facades/process.php?a=il&p=';
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +24,12 @@ export class ServiceService {
     return this.http.get<ApiBusLine[]>(`${this.urlBus}l`);
   }
 
-  apiItinerary(): Observable<ApiItinerary> {
-    return this.http.get<ApiItinerary>(`${this.urlIntinerary}`);
+  apiItinerary(id: number) {
+    return (this.id = id);
+  }
+
+  setItinerary(): Observable<ApiItinerary[]> {
+    // console.log('Ultimo Id', this.id);
+    return this.http.get<ApiItinerary[]>(`${this.urlIntinerary}${this.id}`);
   }
 }

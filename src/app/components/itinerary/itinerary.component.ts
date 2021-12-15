@@ -8,18 +8,19 @@ import { ServiceService } from './../../services/service.service';
   styleUrls: ['./itinerary.component.scss'],
 })
 export class ItineraryComponent implements OnInit {
-  itinerBus!: ApiItinerary;
+  itinerBus!: ApiItinerary[];
   itinerErro!: string;
 
   constructor(private serv: ServiceService) {}
 
   ngOnInit(): void {
-    this.itinerBusLine();
+    this.itineraryBusLine();
   }
 
-  itinerBusLine() {
-    this.serv.apiItinerary().subscribe(
+  itineraryBusLine() {
+    this.serv.setItinerary().subscribe(
       (data) => {
+        // console.log('Valor api', data);
         this.itinerBus = data;
       },
       (erro) => {

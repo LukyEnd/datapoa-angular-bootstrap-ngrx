@@ -1,31 +1,45 @@
-import { ApiBusLine } from './../../models/bus-line.model';
-import { ServiceService } from '../../services/service.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { ServiceService } from 'src/app/services/service.service';
+import { ApiBusLine } from './../../models/bus-line.model';
 
 @Component({
   selector: 'app-bus-line',
   templateUrl: './bus-line.component.html',
-  styleUrls: ['./bus-line.component.scss'],
+  styleUrls: [
+    './bus-line.component.scss',
+    '../base-page/base-page.component.scss',
+  ],
 })
 export class BusLineComponent implements OnInit {
-  busLine!: ApiBusLine[];
-  busError!: string;
+  dtOptions: DataTables.Settings = {};
+  busLine: ApiBusLine[] = [];
 
-  constructor(private serv: ServiceService) {}
+  dtTrigger: Subject<any> = new Subject<any>();
+
+  constructor(private serv: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 8,
+    };
     this.busLineInfo();
   }
 
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
   busLineInfo() {
-    this.serv.apiBusLine().subscribe(
-      (data) => {
-        this.busLine = data;
-        console.log('valor data', data);
-      },
-      (erro) => {
-        this.busError = erro;
-      }
-    );
+    this.serv.apiBusLine().subscribe((data) => {
+      this.busLine = data;
+      this.dtTrigger.next();
+    });
+  }
+
+  setNumberId(id: number) {
+    this.router.navigate(['/itinerary']);
+    return this.serv.apiItinerary(id);
   }
 }

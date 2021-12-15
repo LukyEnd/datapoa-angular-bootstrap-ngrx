@@ -1,5 +1,5 @@
 export interface ApiBusLine {
-  id: string;
+  id: number;
   codigo: string;
   nome: string;
 }
