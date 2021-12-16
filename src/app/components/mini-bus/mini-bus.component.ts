@@ -2,6 +2,7 @@ import { ApiBusLine } from './../../models/bus-line.model';
 import { ServiceService } from 'src/app/services/service.service';
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mini-bus',
@@ -18,7 +19,7 @@ export class MiniBusComponent implements OnInit {
 
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private serv: ServiceService) {}
+  constructor(private serv: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -40,6 +41,7 @@ export class MiniBusComponent implements OnInit {
   }
 
   setNumberId(id: number) {
+    this.router.navigate(['/itinerary']);
     return this.serv.apiItinerary(id);
   }
 }

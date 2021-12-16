@@ -3,29 +3,27 @@
   <hr class="line-main mb-3" />
 </div> -->
 
-<pre
-  >{{ itinerBus | json }}
-</pre>
+<!-- <pre
+  >{{ cordenadas | json }}
+</pre> -->
 
-<!-- <div class="base">
+<div class="base">
   <table datatable class="table table-dark table-striped">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Codigo</th>
-        <th>Nome da Linha</th>
+        <th>Numero da Parada</th>
         <th>Cordenadas</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let line of itinerBus">
-        <td>{{ line.itinerario.lat }}</td>
-        <td>{{ line.itinerario.lng }}</td>
-        <td>{{ line.nome }}</td>
+      <tr **ngFor="let line of cordenadas">
+        <td>{{ line.lat }}</td>
+        <td>{{ line.lng }}</td>
         <td>
           <button class="btn btn-outline-info">Mapa</button>
         </td>
       </tr>
     </tbody>
   </table>
-</div> -->
+</div>

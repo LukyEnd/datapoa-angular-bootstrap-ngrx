@@ -1,11 +1,11 @@
 export interface ApiItinerary {
-  idlinha: number;
+  idlinha: string;
   nome: string;
   codigo: string;
   itinerario: [
     {
-      lat: number;
-      lng: number;
+      lat: string;
+      lng: string;
     }
   ];
 }

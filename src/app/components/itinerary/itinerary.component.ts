@@ -8,8 +8,9 @@ import { ServiceService } from './../../services/service.service';
   styleUrls: ['./itinerary.component.scss'],
 })
 export class ItineraryComponent implements OnInit {
-  itinerBus!: ApiItinerary[];
+  itinerBus!: any;
   itinerErro!: string;
+  cordenadas!: [];
 
   constructor(private serv: ServiceService) {}
 
@@ -21,7 +22,9 @@ export class ItineraryComponent implements OnInit {
     this.serv.setItinerary().subscribe(
       (data) => {
         // console.log('Valor api', data);
+        this.cordenadas = data.map((x: any) => [x.lat, x.lng]);
         this.itinerBus = data;
+        console.log('cordenadas', this.cordenadas);
       },
       (erro) => {
         this.itinerErro = erro;

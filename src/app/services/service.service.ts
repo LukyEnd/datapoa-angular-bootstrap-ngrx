@@ -28,8 +28,8 @@ export class ServiceService {
     return (this.id = id);
   }
 
-  setItinerary(): Observable<ApiItinerary[]> {
-    // console.log('Ultimo Id', this.id);
-    return this.http.get<ApiItinerary[]>(`${this.urlIntinerary}${this.id}`);
+  setItinerary(): Observable<any> {
+    console.log('Ultimo Id', this.id);
+    return this.http.get<any>(`${this.urlIntinerary}${this.id}`);
   }
 }
