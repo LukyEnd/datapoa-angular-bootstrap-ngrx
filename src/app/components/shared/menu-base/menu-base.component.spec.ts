@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MenuBaseComponent } from './menu-base.component';
 
 describe('MenuBaseComponent', () => {
@@ -8,9 +7,8 @@ describe('MenuBaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuBaseComponent ]
-    })
-    .compileComponents();
+      declarations: [MenuBaseComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

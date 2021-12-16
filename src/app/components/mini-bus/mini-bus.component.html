@@ -1,8 +1,24 @@
 <div class="d-flex flex-column">
-  <h4 class="title mt-3">Linha Lotação</h4>
+  <h4 class="title mt-3">Linha de Lotação</h4>
   <hr class="line-main mb-3" />
 </div>
 <div class="base">
+  <div
+    class="alert alert-warning alert-dismissible fade show"
+    role="alert"
+    *ngIf="miniBusErro"
+  >
+    {{ miniBusErro }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="spinner-border text-danger" role="status" *ngIf="isLoading">
+    <span class="visually-hidden">Loading...</span>
+  </div>
   <table
     datatable
     [dtOptions]="dtOptions"

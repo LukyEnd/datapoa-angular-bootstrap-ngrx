@@ -14,8 +14,9 @@ import { Router } from '@angular/router';
 })
 export class MiniBusComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  miniBusLine: ApiBusLine[] = [];
-  miniBusError!: string;
+  miniBusLine!: ApiBusLine[];
+  miniBusErro!: string;
+  isLoading = false;
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private serv: ServiceService, private router: Router) {}
@@ -33,10 +34,17 @@ export class MiniBusComponent implements OnInit {
   }
 
   miniBusInfo() {
-    this.serv.apiMiniBusLines().subscribe((data) => {
-      this.miniBusLine = data;
-      this.dtTrigger.next();
-    });
+    this.isLoading = true;
+    this.serv.apiMiniBusLines().subscribe(
+      (data) => {
+        this.miniBusLine = data;
+        this.dtTrigger.next();
+      },
+      (erro) => {
+        this.miniBusErro = 'Não foi Possivel Consultar';
+      },
+      () => (this.isLoading = false)
+    );
   }
 
   setNumberId(id: number) {

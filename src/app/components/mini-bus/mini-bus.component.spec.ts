@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MiniBusComponent } from './mini-bus.component';
 
 describe('MiniBusComponent', () => {
@@ -8,9 +7,8 @@ describe('MiniBusComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MiniBusComponent ]
-    })
-    .compileComponents();
+      declarations: [MiniBusComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

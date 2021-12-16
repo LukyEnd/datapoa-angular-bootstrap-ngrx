@@ -4,6 +4,22 @@
 </div>
 
 <div class="base">
+  <div
+    class="alert alert-warning alert-dismissible fade show"
+    role="alert"
+    *ngIf="intinerBusError"
+  >
+    {{ intinerBusError }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="spinner-border text-danger" role="status" *ngIf="isLoading">
+    <span class="visually-hidden">Loading...</span>
+  </div>
   <table datatable class="table table-dark table-striped" *ngIf="itinerBus">
     <thead>
       <tr>
@@ -20,6 +36,7 @@
         <td>{{ list.key }}</td>
         <td>
           <a
+            class="btn btn-outline-light"
             href="https://www.google.com/maps/?q={{ list.value.lat }},{{
               list.value.lng
             }}"

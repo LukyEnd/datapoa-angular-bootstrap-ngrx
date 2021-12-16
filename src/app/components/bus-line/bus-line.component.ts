@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { ServiceService } from 'src/app/services/service.service';
@@ -12,9 +12,11 @@ import { ApiBusLine } from './../../models/bus-line.model';
     '../base-page/base-page.component.scss',
   ],
 })
-export class BusLineComponent implements OnInit {
+export class BusLineComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
-  busLine: ApiBusLine[] = [];
+  busLine!: ApiBusLine[];
+  busLineErro!: string;
+  isLoading = false;
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private serv: ServiceService, private router: Router) {}
@@ -32,14 +34,20 @@ export class BusLineComponent implements OnInit {
   }
 
   busLineInfo() {
-    this.serv.apiBusLine().subscribe((data) => {
-      this.busLine = data;
-      this.dtTrigger.next();
-    });
+    this.isLoading = true;
+    this.serv.apiBusLine().subscribe(
+      (data) => {
+        this.busLine = data;
+        this.dtTrigger.next();
+      },
+      (erro) => {
+        this.busLineErro = 'Não foi Possivel Consultar';
+      },
+      () => (this.isLoading = false)
+    );
   }
 
   setNumberId(id: number) {
     this.router.navigate(['/itinerary', id]);
-    return this.serv.setItinerary(id);
   }
 }

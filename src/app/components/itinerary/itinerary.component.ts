@@ -1,4 +1,3 @@
-import { ApiItinerary } from 'src/app/models/itinerary.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from './../../services/service.service';
@@ -13,9 +12,9 @@ import { ServiceService } from './../../services/service.service';
 })
 export class ItineraryComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  busLine: ApiItinerary[] = [];
   itinerBus!: Array<any>;
-  itinerErro!: string;
+  intinerBusError!: string;
+  isLoading = false;
   name!: string;
   codigo!: string;
 
@@ -30,6 +29,7 @@ export class ItineraryComponent implements OnInit {
 
   itineraryBusLine() {
     const id = this.activatedRoute.snapshot.params.id;
+    this.isLoading = true;
     this.serv.setItinerary(id).subscribe(
       (data) => {
         this.name = data.nome;
@@ -40,8 +40,9 @@ export class ItineraryComponent implements OnInit {
         this.itinerBus = data;
       },
       (erro) => {
-        this.itinerErro = erro;
-      }
+        this.intinerBusError = 'Não foi Possivel Consultar';
+      },
+      () => (this.isLoading = false)
     );
   }
 }

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BusLineComponent } from './bus-line.component';
 
 describe('BusLineComponent', () => {

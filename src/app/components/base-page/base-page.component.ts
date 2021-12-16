@@ -1,4 +1,3 @@
-import { ServiceService } from '../../services/service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./base-page.component.scss'],
 })
 export class BasePageComponent implements OnInit {
-  constructor(private serv: ServiceService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

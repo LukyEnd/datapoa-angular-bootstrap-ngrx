@@ -6,11 +6,13 @@
     <h1>DataPoa Api</h1>
   </div>
   <div class="buttons">
-    <button onclick="window.location.href= '/'" class="btn btn-dark">
+    <a
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+      class="btn btn-dark"
+    >
       Onibus
-    </button>
-    <button onclick="window.location.href= '/minibus'" class="btn btn-dark">
-      Lotação
-    </button>
+    </a>
+    <a [routerLink]="['/minibus']" class="btn btn-dark">Lotação</a>
   </div>
 </div>

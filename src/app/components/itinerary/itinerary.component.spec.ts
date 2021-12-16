@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ItineraryComponent } from './itinerary.component';
 
 describe('ItineraryComponent', () => {
@@ -8,9 +7,8 @@ describe('ItineraryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItineraryComponent ]
-    })
-    .compileComponents();
+      declarations: [ItineraryComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
