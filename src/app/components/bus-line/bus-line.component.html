@@ -37,10 +37,10 @@
       <tr *ngFor="let line of busLine">
         <td>{{ line.id }}</td>
         <td>{{ line.codigo }}</td>
-        <td>{{ line.nome }}</td>
+        <td>{{ line.nome | titlecase }}</td>
         <td>
           <button (click)="setNumberId(line.id)" class="btn btn-outline-info">
-            Ver Mais
+            <i class="fas fa-bus-alt"></i> Ver Mais
           </button>
         </td>
       </tr>

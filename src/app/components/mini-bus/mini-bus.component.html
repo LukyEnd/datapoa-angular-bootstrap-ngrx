@@ -28,7 +28,7 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Codigo/th></th>
+        <th>Codigo</th>
         <th>Nome da Linha</th>
         <th>Itinerario</th>
       </tr>
@@ -37,10 +37,10 @@
       <tr *ngFor="let line of miniBusLine">
         <td>{{ line.id }}</td>
         <td>{{ line.codigo }}</td>
-        <td>{{ line.nome }}</td>
+        <td>{{ line.nome | titlecase }}</td>
         <td>
           <button (click)="setNumberId(line.id)" class="btn btn-outline-info">
-            Ver Mais
+            <i class="fas fa-shuttle-van"></i> Ver Mais
           </button>
         </td>
       </tr>

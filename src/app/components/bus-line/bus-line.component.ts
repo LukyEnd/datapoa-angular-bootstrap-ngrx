@@ -17,6 +17,7 @@ export class BusLineComponent implements OnInit, OnDestroy {
   busLine!: ApiBusLine[];
   busLineErro!: string;
   isLoading = false;
+
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private serv: ServiceService, private router: Router) {}
@@ -25,6 +26,9 @@ export class BusLineComponent implements OnInit, OnDestroy {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
+      },
     };
     this.busLineInfo();
   }

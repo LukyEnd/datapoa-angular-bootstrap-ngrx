@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 import { ServiceService } from './../../services/service.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ServiceService } from './../../services/service.service';
     '../base-page/base-page.component.scss',
   ],
 })
-export class ItineraryComponent implements OnInit {
+export class ItineraryComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   itinerBus!: Array<any>;
   intinerBusError!: string;
@@ -18,14 +19,28 @@ export class ItineraryComponent implements OnInit {
   name!: string;
   codigo!: string;
 
+  // dtTrigger: Subject<any> = new Subject<any>();
+
   constructor(
     private serv: ServiceService,
     private activatedRoute: ActivatedRoute
   ) {
     this.itineraryBusLine();
   }
+  ngOnDestroy(): void {
+    // this.dtTrigger.unsubscribe();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
+      },
+    };
+    this.itineraryBusLine();
+  }
 
   itineraryBusLine() {
     const id = this.activatedRoute.snapshot.params.id;

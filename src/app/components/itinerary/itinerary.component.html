@@ -1,5 +1,5 @@
 <div class="d-flex flex-column">
-  <h4 *ngIf="itinerBus" class="title">Itinerário de {{ name }}</h4>
+  <h4 *ngIf="itinerBus" class="title">Itinerário de {{ name | titlecase }}</h4>
   <hr class="line-main" />
 </div>
 
@@ -20,7 +20,11 @@
   <div class="spinner-border text-danger" role="status" *ngIf="isLoading">
     <span class="visually-hidden">Loading...</span>
   </div>
-  <table datatable class="table table-dark table-striped" *ngIf="itinerBus">
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    class="table table-dark table-striped"
+  >
     <thead>
       <tr>
         <th>Nome</th>
@@ -31,7 +35,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let list of itinerBus | keyvalue">
-        <td>{{ name }}</td>
+        <td>{{ name | titlecase }}</td>
         <td>{{ codigo }}</td>
         <td>{{ list.key }}</td>
         <td>
@@ -41,7 +45,7 @@
               list.value.lng
             }}"
             target="_blank"
-            >Ver no mapa</a
+            ><i class="fas fa-map-marked-alt"></i> Ver no mapa</a
           >
         </td>
       </tr>
