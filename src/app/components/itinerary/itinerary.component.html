@@ -1,27 +1,31 @@
-<!-- <div class="d-flex flex-column">
-  <h4 class="title mt-3">Itinerary</h4>
-  <hr class="line-main mb-3" />
-</div> -->
-
-<!-- <pre
-  >{{ cordenadas | json }}
-</pre> -->
+<div class="d-flex flex-column">
+  <h4 *ngIf="itinerBus" class="title">Itinerário de {{ name }}</h4>
+  <hr class="line-main" />
+</div>
 
 <div class="base">
-  <table datatable class="table table-dark table-striped">
+  <table datatable class="table table-dark table-striped" *ngIf="itinerBus">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Numero da Parada</th>
-        <th>Cordenadas</th>
+        <th>Nome</th>
+        <th>Código</th>
+        <th>Parada</th>
+        <th>Localização</th>
       </tr>
     </thead>
     <tbody>
-      <tr **ngFor="let line of cordenadas">
-        <td>{{ line.lat }}</td>
-        <td>{{ line.lng }}</td>
+      <tr *ngFor="let list of itinerBus | keyvalue">
+        <td>{{ name }}</td>
+        <td>{{ codigo }}</td>
+        <td>{{ list.key }}</td>
         <td>
-          <button class="btn btn-outline-info">Mapa</button>
+          <a
+            href="https://www.google.com/maps/?q={{ list.value.lat }},{{
+              list.value.lng
+            }}"
+            target="_blank"
+            >Ver no mapa</a
+          >
         </td>
       </tr>
     </tbody>

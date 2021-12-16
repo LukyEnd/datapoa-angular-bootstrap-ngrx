@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-menu-base',
   templateUrl: './menu-base.component.html',
-  styleUrls: ['./menu-base.component.scss']
+  styleUrls: ['./menu-base.component.scss'],
 })
 export class MenuBaseComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

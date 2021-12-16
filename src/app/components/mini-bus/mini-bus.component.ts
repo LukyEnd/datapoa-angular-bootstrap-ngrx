@@ -16,7 +16,6 @@ export class MiniBusComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   miniBusLine: ApiBusLine[] = [];
   miniBusError!: string;
-
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private serv: ServiceService, private router: Router) {}
@@ -24,7 +23,7 @@ export class MiniBusComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 8,
+      pageLength: 10,
     };
     this.miniBusInfo();
   }
@@ -41,7 +40,7 @@ export class MiniBusComponent implements OnInit {
   }
 
   setNumberId(id: number) {
-    this.router.navigate(['/itinerary']);
-    return this.serv.apiItinerary(id);
+    this.router.navigate(['/itinerary', id]);
+    return this.serv.setItinerary(id);
   }
 }

@@ -6,9 +6,8 @@ import { ItineraryComponent } from './components/itinerary/itinerary.component';
 import { MiniBusComponent } from './components/mini-bus/mini-bus.component';
 
 const routes: Routes = [
-  // { path: '', component: BasePageComponent },
   { path: '', component: BusLineComponent },
-  { path: 'itinerary', component: ItineraryComponent },
+  { path: 'itinerary/:id', component: ItineraryComponent },
   { path: 'minibus', component: MiniBusComponent },
   { path: '**', component: ErrorsComponent },
 ];

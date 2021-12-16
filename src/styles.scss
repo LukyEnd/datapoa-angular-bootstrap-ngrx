@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+label {
+  color: white;
+}
+
+option {
+  color: rgb(0, 0, 0) !important;
+}
+
+.dataTables_info {
+  color: white !important;
+}
+
+.form-select-sm {
+  color: white !important;
+  width: 80px !important;
+}
+
+.flex-column {
+  color: white;
+  padding-top: 5px;
+  padding-left: 20%;
+  padding-right: 20%;
+  background: black;
+  font-size: 25px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.page-item {
+  padding: 2px !important;
+}
+
+.dataTables_info {
+  width: 100% !important;
+  max-width: 230px !important;
+}

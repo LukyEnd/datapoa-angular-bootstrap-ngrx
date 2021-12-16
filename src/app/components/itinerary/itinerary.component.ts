@@ -1,30 +1,43 @@
-import { Component, OnInit } from '@angular/core';
 import { ApiItinerary } from 'src/app/models/itinerary.model';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from './../../services/service.service';
 
 @Component({
   selector: 'app-itinerary',
   templateUrl: './itinerary.component.html',
-  styleUrls: ['./itinerary.component.scss'],
+  styleUrls: [
+    './itinerary.component.scss',
+    '../base-page/base-page.component.scss',
+  ],
 })
 export class ItineraryComponent implements OnInit {
-  itinerBus!: any;
+  dtOptions: DataTables.Settings = {};
+  busLine: ApiItinerary[] = [];
+  itinerBus!: Array<any>;
   itinerErro!: string;
-  cordenadas!: [];
+  name!: string;
+  codigo!: string;
 
-  constructor(private serv: ServiceService) {}
-
-  ngOnInit(): void {
+  constructor(
+    private serv: ServiceService,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.itineraryBusLine();
   }
 
+  ngOnInit(): void {}
+
   itineraryBusLine() {
-    this.serv.setItinerary().subscribe(
+    const id = this.activatedRoute.snapshot.params.id;
+    this.serv.setItinerary(id).subscribe(
       (data) => {
-        // console.log('Valor api', data);
-        this.cordenadas = data.map((x: any) => [x.lat, x.lng]);
+        this.name = data.nome;
+        this.codigo = data.codigo;
+        delete data.nome;
+        delete data.idlinha;
+        delete data.codigo;
         this.itinerBus = data;
-        console.log('cordenadas', this.cordenadas);
       },
       (erro) => {
         this.itinerErro = erro;

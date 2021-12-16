@@ -15,7 +15,6 @@ import { ApiBusLine } from './../../models/bus-line.model';
 export class BusLineComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   busLine: ApiBusLine[] = [];
-
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private serv: ServiceService, private router: Router) {}
@@ -23,7 +22,7 @@ export class BusLineComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 8,
+      pageLength: 10,
     };
     this.busLineInfo();
   }
@@ -31,6 +30,7 @@ export class BusLineComponent implements OnInit {
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
+
   busLineInfo() {
     this.serv.apiBusLine().subscribe((data) => {
       this.busLine = data;
@@ -39,7 +39,7 @@ export class BusLineComponent implements OnInit {
   }
 
   setNumberId(id: number) {
-    this.router.navigate(['/itinerary']);
-    return this.serv.apiItinerary(id);
+    this.router.navigate(['/itinerary', id]);
+    return this.serv.setItinerary(id);
   }
 }
