@@ -27,22 +27,22 @@
   >
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Codigo</th>
-        <th>Nome da Linha</th>
-        <th>Itinerario</th>
+        <th scope="col">ID</th>
+        <th scope="col">Codigo</th>
+        <th scope="col">Nome da Linha</th>
+        <th scope="col">Itinerario</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let line of busLine">
-        <td>{{ line.id }}</td>
-        <td>{{ line.codigo }}</td>
-        <td>{{ line.nome | titlecase }}</td>
-        <td>
+        <th scope="row">{{ line.id }}</th>
+        <th scope="row" scope="row" d>{{ line.codigo }}</th>
+        <th scope="row">{{ line.nome | titlecase }}</th>
+        <th scope="row">
           <button (click)="setNumberId(line.id)" class="btn btn-outline-info">
             <i class="fas fa-bus-alt"></i> Ver Mais
           </button>
-        </td>
+        </th>
       </tr>
     </tbody>
   </table>
