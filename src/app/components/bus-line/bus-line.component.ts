@@ -7,30 +7,21 @@ import { ApiBusLine } from './../../models/bus-line.model';
 @Component({
   selector: 'app-bus-line',
   templateUrl: './bus-line.component.html',
-  styleUrls: [
-    './bus-line.component.scss',
-    '../base-page/base-page.component.scss',
-  ],
+  styleUrls: ['./bus-line.component.scss'],
 })
 export class BusLineComponent implements OnInit, OnDestroy {
-  dtOptions: DataTables.Settings = {};
   busLine!: ApiBusLine[];
   busLineErro!: string;
-  isLoading = false;
 
+  isLoading = false;
+  dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private serv: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      language: {
-        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
-      },
-    };
     this.busLineInfo();
+    this.tableConfig();
   }
 
   ngOnDestroy(): void {
@@ -49,6 +40,16 @@ export class BusLineComponent implements OnInit, OnDestroy {
       },
       () => (this.isLoading = false)
     );
+  }
+
+  tableConfig() {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
+      },
+    };
   }
 
   setNumberId(id: number) {

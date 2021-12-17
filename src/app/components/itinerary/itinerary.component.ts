@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { ServiceService } from './../../services/service.service';
@@ -6,19 +6,16 @@ import { ServiceService } from './../../services/service.service';
 @Component({
   selector: 'app-itinerary',
   templateUrl: './itinerary.component.html',
-  styleUrls: [
-    './itinerary.component.scss',
-    '../base-page/base-page.component.scss',
-  ],
+  styleUrls: ['./itinerary.component.scss'],
 })
 export class ItineraryComponent implements OnInit, OnDestroy {
-  dtOptions: DataTables.Settings = {};
   itinerBus!: Array<any>;
   intinerBusError!: string;
-  isLoading = false;
   name!: string;
   codigo!: string;
 
+  isLoading = false;
+  dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
@@ -32,19 +29,12 @@ export class ItineraryComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      language: {
-        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
-      },
-    };
+    this.tableConfig();
   }
 
   itineraryBusLine() {
     this.isLoading = true;
     const id = this.activatedRoute.snapshot.params.id;
-
     this.serv.setItinerary(id).subscribe(
       (data) => {
         this.name = data.nome;
@@ -60,5 +50,15 @@ export class ItineraryComponent implements OnInit, OnDestroy {
       },
       () => (this.isLoading = false)
     );
+  }
+
+  tableConfig() {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
+      },
+    };
   }
 }
