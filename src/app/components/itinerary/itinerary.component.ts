@@ -19,7 +19,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
   name!: string;
   codigo!: string;
 
-  // dtTrigger: Subject<any> = new Subject<any>();
+  dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
     private serv: ServiceService,
@@ -28,7 +28,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
     this.itineraryBusLine();
   }
   ngOnDestroy(): void {
-    // this.dtTrigger.unsubscribe();
+    this.dtTrigger.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -39,12 +39,12 @@ export class ItineraryComponent implements OnInit, OnDestroy {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
       },
     };
-    this.itineraryBusLine();
   }
 
   itineraryBusLine() {
-    const id = this.activatedRoute.snapshot.params.id;
     this.isLoading = true;
+    const id = this.activatedRoute.snapshot.params.id;
+
     this.serv.setItinerary(id).subscribe(
       (data) => {
         this.name = data.nome;
@@ -53,6 +53,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
         delete data.idlinha;
         delete data.codigo;
         this.itinerBus = data;
+        this.dtTrigger.next();
       },
       (erro) => {
         this.intinerBusError = 'Não foi Possivel Consultar';

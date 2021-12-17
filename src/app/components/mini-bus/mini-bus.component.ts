@@ -52,6 +52,5 @@ export class MiniBusComponent implements OnInit {
 
   setNumberId(id: number) {
     this.router.navigate(['/itinerary', id]);
-    return this.serv.setItinerary(id);
   }
 }
