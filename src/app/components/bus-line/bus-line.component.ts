@@ -1,8 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { ServiceService } from 'src/app/services/service.service';
-import { ApiBusLine } from './../../models/bus-line.model';
+import { LoderStatus } from 'src/app/store/actions/loader.actions';
+import { getBusLineSuccess } from 'src/app/store/selectors/bus-line.selectors';
+import { ApiBusLine } from '../../services/models/bus-line.model';
+import * as BusActions from '../../store/actions/bus-line.actions';
+import {
+  getBusLineError,
+  getLoader,
+} from './../../store/selectors/bus-line.selectors';
 
 @Component({
   selector: 'app-bus-line',
@@ -10,35 +18,55 @@ import { ApiBusLine } from './../../models/bus-line.model';
   styleUrls: ['./bus-line.component.scss'],
 })
 export class BusLineComponent implements OnInit, OnDestroy {
+  busLine$!: Observable<ApiBusLine[]>;
   busLine!: ApiBusLine[];
+
+  busLineError$!: Observable<string>;
   busLineErro!: string;
 
+  isLoading$!: Observable<boolean>;
   isLoading = false;
+
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private serv: ServiceService, private router: Router) {}
+  subscription: Subscription[] = [];
+
+  constructor(
+    private serv: ServiceService,
+    private router: Router,
+    private store: Store
+  ) {
+    this.busLine$ = this.store.select(getBusLineSuccess);
+    this.busLineError$ = this.store.select(getBusLineError);
+    this.isLoading$ = this.store.select(getLoader);
+  }
 
   ngOnInit(): void {
-    this.busLineInfo();
+    this.valorBusSelector();
     this.tableConfig();
+    this.busLineInfos();
   }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
-
-  busLineInfo() {
-    this.isLoading = true;
-    this.serv.apiBusLine().subscribe(
-      (data) => {
-        this.busLine = data;
-        this.dtTrigger.next();
-      },
-      (erro) => {
-        this.busLineErro = 'Não foi Possivel Consultar';
-      },
-      () => (this.isLoading = false)
+  //-----------------------------------------------------------------------------
+  busLineInfos() {
+    this.store.dispatch(LoderStatus({ status: true }));
+    this.store.dispatch(BusActions.loadBusLines());
+  }
+  valorBusSelector() {
+    this.subscription.push(
+      this.busLine$.subscribe(
+        (data) => {
+          this.busLine = data;
+          this.dtTrigger.next();
+        },
+        (erro) => {
+          this.busLineErro = erro;
+        }
+      )
     );
   }
 

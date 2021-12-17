@@ -22,7 +22,7 @@
         <div
           class="spinner-border text-danger position-absolute top-50 start-50"
           role="status"
-          *ngIf="isLoading"
+          *ngIf="isLoading$ | async as isloading"
         >
           <span class="visually-hidden">Loading...</span>
         </div>

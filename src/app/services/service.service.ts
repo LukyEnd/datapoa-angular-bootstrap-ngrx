@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiBusLine } from '../models/bus-line.model';
+import { ApiBusLine } from './models/bus-line.model';
 
 @Injectable({
   providedIn: 'root',
