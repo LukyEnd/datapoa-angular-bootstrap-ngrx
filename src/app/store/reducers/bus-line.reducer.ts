@@ -5,13 +5,13 @@ import * as BusLineActions from '../actions/bus-line.actions';
 export const busLineFeatureKey = 'busLine';
 
 export interface BusState {
-  busLineList: ApiBusLine[];
+  busLineData: ApiBusLine[];
   error: string;
   loader: boolean;
 }
 
 export const initialState: BusState = {
-  busLineList: [],
+  busLineData: [],
   error: '',
   loader: false,
 };
@@ -21,15 +21,15 @@ export const busReducer = createReducer(
   on(BusLineActions.loadBusLinesSuccess, (state, action): BusState => {
     return {
       ...state,
+      busLineData: action.busLineData,
       error: '',
-      busLineList: action.busLineList,
     };
   }),
   on(BusLineActions.loadBusLinesFailure, (state, action): BusState => {
     return {
       ...state,
+      busLineData: [],
       error: action.error,
-      busLineList: [],
     };
   })
 );

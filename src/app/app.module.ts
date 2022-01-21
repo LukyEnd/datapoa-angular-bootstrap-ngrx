@@ -12,7 +12,9 @@ import { BusLineComponent } from './components/bus-line/bus-line.component';
 import { ErrorsComponent } from './components/errors/errors.component';
 import { ItineraryComponent } from './components/itinerary/itinerary.component';
 import { MiniBusComponent } from './components/mini-bus/mini-bus.component';
+import { CssBaseComponent } from './components/shared/css-base/css-base.component';
 import { MenuBaseComponent } from './components/shared/menu-base/menu-base.component';
+import { BusItineraryEffects } from './store/effects/bus-itinerary.effects';
 import { BusLineEffects } from './store/effects/bus-line.effects';
 import { MiniBusEffects } from './store/effects/mini-bus.effects';
 import { reducers } from './store/reducers/root.reducers';
@@ -25,6 +27,7 @@ import { reducers } from './store/reducers/root.reducers';
     MiniBusComponent,
     ItineraryComponent,
     MenuBaseComponent,
+    CssBaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,11 @@ import { reducers } from './store/reducers/root.reducers';
     HttpClientModule,
     DataTablesModule,
     StoreModule,
-    EffectsModule.forRoot([BusLineEffects, MiniBusEffects]),
+    EffectsModule.forRoot([
+      BusLineEffects,
+      MiniBusEffects,
+      BusItineraryEffects,
+    ]),
     StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -1,11 +1,11 @@
-import { AppState } from './../state/app.state';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap } from 'rxjs/operators';
-import * as BusLineActions from '../actions/bus-line.actions';
-import { ServiceService } from '../../services/service.service';
 import { Store } from '@ngrx/store';
+import { map, mergeMap } from 'rxjs/operators';
+import { ServiceService } from '../../services/service.service';
+import * as BusLineActions from '../actions/bus-line.actions';
 import { LoderStatus } from '../actions/loader.actions';
+import { AppState } from './../state/app.state';
 
 @Injectable()
 export class BusLineEffects {
@@ -18,12 +18,13 @@ export class BusLineEffects {
   loadBusLines$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(BusLineActions.loadBusLines),
-
       mergeMap(() =>
         this.serv.apiBusLine().pipe(
-          map((busLineList) => {
+          map((busLineData) => {
             this.store.dispatch(LoderStatus({ status: false }));
-            return BusLineActions.loadBusLinesSuccess({ busLineList });
+            return BusLineActions.loadBusLinesSuccess({
+              busLineData: busLineData,
+            });
           })
         )
       )

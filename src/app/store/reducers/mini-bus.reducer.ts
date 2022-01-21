@@ -5,13 +5,13 @@ import * as MiniBusActions from '../actions/mini-bus.actions';
 export const miniBusFeatureKey = 'miniBus';
 
 export interface MiniBusState {
-  miniBusList: ApiBusLine[];
+  miniBusData: ApiBusLine[];
   error: string;
   loader: boolean;
 }
 
 export const initialState: MiniBusState = {
-  miniBusList: [],
+  miniBusData: [],
   error: '',
   loader: false,
 };
@@ -21,15 +21,15 @@ export const miniBusReducer = createReducer(
   on(MiniBusActions.MiniBussSuccess, (state, action): MiniBusState => {
     return {
       ...state,
+      miniBusData: action.miniBusData,
       error: '',
-      miniBusList: action.miniBusList,
     };
   }),
   on(MiniBusActions.MiniBussFailure, (state, action): MiniBusState => {
     return {
       ...state,
+      miniBusData: [],
       error: action.error,
-      miniBusList: [],
     };
   })
 );

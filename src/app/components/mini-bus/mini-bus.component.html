@@ -2,40 +2,23 @@
   <h4 class="title mt-3">Linha de Lotação</h4>
   <hr class="line-main mb-3" />
 </div>
-<div class="container m-4">
+<div class="container m-0">
   <div class="row">
     <div class="col-md-10 offset-md-2">
       <div class="base m-4">
-        <div
-          class="alert alert-warning alert-dismissible fade show"
-          role="alert"
-          *ngIf="miniBusErro"
-        >
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="miniBusErro">
           {{ miniBusErro }}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div
-          class="spinner-border text-danger position-absolute top-50 start-50"
-          role="status"
-          *ngIf="isLoading$ | async as isloading"
-        >
+        <div class="spinner-border text-danger position-absolute top-50 start-50" role="status"
+          *ngIf="isLoading$ | async as isloading">
           <span class="visually-hidden">Loading...</span>
         </div>
-        <table
-          datatable
-          [dtOptions]="dtOptions"
-          [dtTrigger]="dtTrigger"
-          class="table table-dark table-striped"
-        >
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-dark table-striped">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Codigo</th>
+              <th>Código</th>
               <th>Nome da Linha</th>
               <th>Itinerario</th>
             </tr>
@@ -46,10 +29,7 @@
               <td>{{ line.codigo }}</td>
               <td>{{ line.nome | titlecase }}</td>
               <td>
-                <button
-                  (click)="setNumberId(line.id)"
-                  class="btn btn-outline-info"
-                >
+                <button (click)="setNumberId(line.id)" class="btn btn-outline-info">
                   <i class="fas fa-shuttle-van"></i> Ver Mais
                 </button>
               </td>

@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  urlBus:
+    'http://www.poatransporte.com.br/php/facades/process.php?a=nc&p=%25&t=',
+  urlItinerary:
+    'http://www.poatransporte.com.br/php/facades/process.php?a=il&p=',
+  production: false,
 };
 
 /*

@@ -5,7 +5,7 @@ export const loadBusLines = createAction('[BusLine] Buscando dados da API');
 
 export const loadBusLinesSuccess = createAction(
   '[BusLine] Dados da API buscados com sucesso',
-  props<{ busLineList: ApiBusLine[] }>()
+  props<{ busLineData: ApiBusLine[] }>()
 );
 
 export const loadBusLinesFailure = createAction(

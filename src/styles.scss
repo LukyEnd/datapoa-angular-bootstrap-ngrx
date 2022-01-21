@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background-color: black !important;
+  background-color: #161616 !important;
 }
+
+// tbody tr {
+//   max-height: 10% !important;
+// }
 
 label {
   color: white;
@@ -13,6 +17,28 @@ option {
 
 input {
   color: white !important;
+}
+
+// tr {
+//   height: 1px !important;
+// }
+
+td,
+td.sorting_1 {
+  padding-left: 25px !important;
+}
+
+th.sorting::after,
+th.sorting::before {
+  color: #212529;
+}
+.id {
+  width: 40px;
+}
+
+.cod {
+  width: 70px !important;
+  margin-right: 20px !important;
 }
 
 .dataTables_info {
@@ -29,17 +55,30 @@ input {
   padding-top: 5px;
   padding-left: 20%;
   padding-right: 20%;
-  background: black;
+  background: #161616;
   font-size: 25px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+.dataTables_wrapper {
+  background-color: #161616;
+}
+
+.d-flex {
+  max-height: 60px;
+}
+
+.line-main {
+  margin: 5px;
+  border: 1px solid #0dcaf0 !important;
+}
+
 .page-item {
   padding: 2px !important;
+  margin-top: 30px;
 }
 
 .dataTables_info {
-  width: 100% !important;
-  max-width: 230px !important;
+  position: absolute;
 }

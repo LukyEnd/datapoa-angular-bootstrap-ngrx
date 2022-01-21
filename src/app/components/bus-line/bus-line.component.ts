@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { ServiceService } from 'src/app/services/service.service';
 import { LoderStatus } from 'src/app/store/actions/loader.actions';
 import { getBusLineSuccess } from 'src/app/store/selectors/bus-line.selectors';
 import { ApiBusLine } from '../../services/models/bus-line.model';
@@ -15,65 +14,66 @@ import {
 @Component({
   selector: 'app-bus-line',
   templateUrl: './bus-line.component.html',
-  styleUrls: ['./bus-line.component.scss'],
+  styleUrls: [
+    './bus-line.component.scss',
+    '../shared/css-base/css-base.component.scss',
+  ],
 })
 export class BusLineComponent implements OnInit, OnDestroy {
   busLine$!: Observable<ApiBusLine[]>;
   busLine!: ApiBusLine[];
 
-  busLineError$!: Observable<string>;
+  busLineErro$!: Observable<string>;
   busLineErro!: string;
 
   isLoading$!: Observable<boolean>;
   isLoading = false;
 
+  subscription: Subscription[] = [];
+
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
-  subscription: Subscription[] = [];
-
-  constructor(
-    private serv: ServiceService,
-    private router: Router,
-    private store: Store
-  ) {
+  constructor(private router: Router, private store: Store) {
     this.busLine$ = this.store.select(getBusLineSuccess);
-    this.busLineError$ = this.store.select(getBusLineError);
+    this.busLineErro$ = this.store.select(getBusLineError);
     this.isLoading$ = this.store.select(getLoader);
   }
 
   ngOnInit(): void {
-    this.valorBusSelector();
+    this.busLinePage();
+    this.dataLineBus();
     this.tableConfig();
-    this.busLineInfos();
   }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
-  //-----------------------------------------------------------------------------
-  busLineInfos() {
+
+  busLinePage() {
     this.store.dispatch(LoderStatus({ status: true }));
     this.store.dispatch(BusActions.loadBusLines());
   }
-  valorBusSelector() {
+
+  dataLineBus() {
     this.subscription.push(
-      this.busLine$.subscribe(
-        (data) => {
-          this.busLine = data;
-          this.dtTrigger.next();
-        },
-        (erro) => {
-          this.busLineErro = erro;
-        }
-      )
+      this.busLine$.subscribe((data) => {
+        this.busLine = data;
+        this.dtTrigger.next();
+      })
+    );
+    this.subscription.push(
+      this.busLineErro$.subscribe((erro) => {
+        this.busLineErro = erro;
+        this.dtTrigger.next();
+      })
     );
   }
 
   tableConfig() {
     this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
+      // pagingType: 'full_numbers',
+      pageLength: 8,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',
       },
