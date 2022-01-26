@@ -1,0 +1,105 @@
+
+
+  mapData(longLat: any) {
+    // let x = coordinates[0];
+    // console.log('Pq nao Passa Daki ?', coordinates[itemIndex]);
+    // console.log('Pq nao Passa Daki ?', this.lng[0]);
+    // this.ngOnInit();
+    // var Mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+    (Mapboxgl as any).accessToken = environment.mapTokenKey;
+    // console.log('Pq nao Passa Daki ?', coordinates);
+    // const cord = Mapboxgl.LngLatBounds.convert(coordinates);
+    // console.log(cordCenter);
+    //toArray()
+    const maps = new Mapboxgl.Map({
+      container: 'maps',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-51.146988104753, -30.149835579925], // lng, lat
+      zoom: 15,
+    });
+
+    // console.log('Pq nao chega aki ?', this.lng);
+    // console.log('Ver o que vai', this.coordinates);
+    // console.log('longitude', [this.lng, this.lat]);
+
+    for (var itemIndex in longLat) {
+      // push new feature to the collection
+      this.featureCollection.push({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: longLat[itemIndex],
+        },
+        properties: {
+          title: 'Mapbox DC',
+          icon: 'monument',
+        },
+      });
+    }
+
+
+    
+
+    //   maps.on('load', () => {
+    //     for (var itemIndex in coordinates) {
+    //       maps.addSource('route', {
+    //         type: 'geojson',
+    //         data: {
+    //           type: 'Feature',
+    //           properties: {},
+    //           geometry: {
+    //             type: 'LineString',
+    //             coordinates: [
+    //               coordinates[itemIndex],
+    //               // cord.toArray(),
+    //               // [-51.146988104753, -30.149835579925],
+    //               // [-51.146176104753, -30.150183579925],
+    //               // [-51.145770104753, -30.150351579925],
+    //               // [-51.142720104753, -30.151674579925],
+    //               // [-51.142485104753, -30.151780579925],
+    //               // [-51.142306104753, -30.151887579925],
+    //               // [-51.141907104753, -30.152253579925],
+    //               // [-51.141609104753, -30.152532579925],
+    //               // [-51.141110104753, -30.153004579925],
+    //               // [-51.140951104753, -30.153154579925],
+    //               //----- pra baixo tudo errado
+    //               // [-51.227788382729, -30.030426882913],
+    //               // [-51.227763382729, -30.030759882913],
+    //               // [-51.227794382729, -30.031552882913],
+    //               // [-51.227871382729, -30.032510882913],
+    //               // [-51.227946382729, -30.033629882913],
+    //               // [-51.228038382729, -30.034946882913],
+    //               // [-51.228100382729, -30.036054882913],
+    //               // [-51.228156382729, -30.036995882913],
+    //               // [-51.228263382729, -30.037823882913],
+    //               // [-51.228433382729, -30.037665882913],
+    //               // [-51.228590382729, -30.037605882913],
+    //               // [-51.229166382729, -30.037545882913],
+    //               // [-51.229385382729, -30.037542882913],
+    //               // [-51.229463382729, -30.037571882913],
+    //               // [-51.229561382729, -30.037606882913],
+    //               // [-51.229693382729, -30.037725882913],
+    //             ],
+    //           },
+    //         },
+    //       });
+    //     }
+    //     maps.addLayer({
+    //       id: 'route',
+    //       type: 'line',
+    //       source: 'route',
+    //       layout: {
+    //         'line-join': 'round',
+    //         'line-cap': 'round',
+    //       },
+    //       paint: {
+    //         'line-color': '#888',
+    //         'line-width': 8,
+    //       },
+    //     });
+    //   });
+    // }
+
+
+  }
+}

@@ -1,9 +1,11 @@
-td,
-th {
-  display: flex;
-  justify-content: space-around;
-}
-.btn {
+.card {
   width: 100%;
-  max-width: 400px;
+  height: 70em;
+}
+
+#id {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
