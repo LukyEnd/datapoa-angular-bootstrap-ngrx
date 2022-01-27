@@ -19,7 +19,7 @@ export class BusLineEffects {
     return this.actions$.pipe(
       ofType(BusLineActions.loadBusLines),
       mergeMap(() =>
-        this.serv.apiBusLine().pipe(
+        this.serv.apiBusLine('bus').pipe(
           map((busLineData) => {
             this.store.dispatch(LoderStatus({ status: false }));
             return BusLineActions.loadBusLinesSuccess({

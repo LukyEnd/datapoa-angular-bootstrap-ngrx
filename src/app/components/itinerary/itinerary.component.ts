@@ -25,27 +25,22 @@ export class ItineraryComponent implements OnInit, OnDestroy {
   busItineraryErro$!: Observable<string>;
   busItineraryErro!: string;
 
-  maps!: Mapboxgl.Map;
-  arrayTestes: any = [];
-  teste!: any;
-
   isLoading$!: Observable<boolean>;
   isLoading: boolean = false;
 
   subscription: Subscription[] = [];
 
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
-
   constructor(private activatedRoute: ActivatedRoute, private store: Store) {
     this.busItinerary$ = this.store.select(getBusItinerarySuccess);
     this.busItineraryErro$ = this.store.select(getBusItineraryError);
   }
-  ngOnDestroy(): void {}
 
   ngOnInit(): void {
     this.busItineraryPage();
     this.dataItineraryBus();
+  }
+  ngOnDestroy(): void {
+    this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
   busItineraryPage() {
@@ -75,27 +70,15 @@ export class ItineraryComponent implements OnInit, OnDestroy {
           })
         )
         .subscribe(() => {
-          let lat = this.busItinerary.map(function (item, indice) {
-            let numlat = +item.lat;
-            return numlat;
+          let coordinates = this.busItinerary.map(function (item) {
+            let lngLat = [+item.lng, +item.lat];
+            return lngLat;
           });
-          let lng = this.busItinerary.map(function (item, indice) {
-            let numlng = +item.lng;
-            return numlng;
-          });
-          this.vamove(lng, lat).then((x: any | null | undefined) => {
-            if (x.length != 0) {
-              let coordinates = this.busItinerary.map(function (item, indice) {
-                let numlat = [+item.lng, +item.lat];
-                return numlat;
-              });
-              this.mapData(coordinates, lng, lat);
-            }
-          });
+          this.mapData(coordinates);
+          this.busItinerary = [];
 
           return {
             name: this.name,
-            busItinerary: this.busItinerary,
           };
         })
     );
@@ -107,28 +90,15 @@ export class ItineraryComponent implements OnInit, OnDestroy {
     );
   }
 
-  vamove(lng: any, lat: any): any {
-    var promise = new Promise((resolve, reject) => {
-      let coordinates = new Array(lng.length);
-      for (let i = 0; i < lng.length; i++) {
-        coordinates[i] = new Array(lng.length);
-        for (i = 0; i < lng.length; i++) {
-          coordinates[i] = +lng[i] + ',' + lat[i];
-        }
-      }
-      resolve(coordinates);
-    });
-    return promise;
-  }
-
-  mapData(lngLat: any, lng: any, lat: any) {
+  mapData(lngLat: Array<any>) {
     (Mapboxgl as any).accessToken = environment.mapTokenKey;
-    const cordCenter = new Mapboxgl.LngLat(lng[0], lat[0]);
     const maps = new Mapboxgl.Map({
       container: 'maps',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [cordCenter.lng, cordCenter.lat], // lng, lat
-      zoom: 15,
+      center: lngLat[0], // lng, lat
+      zoom: 16,
+      pitch: 50,
+      maxPitch: 68,
     });
 
     maps.on('load', () => {
@@ -154,8 +124,22 @@ export class ItineraryComponent implements OnInit, OnDestroy {
         paint: {
           'line-color': '#0000FF',
           'line-width': 6,
+          'line-opacity': 0.5,
         },
       });
+      for (let key in lngLat) {
+        new Mapboxgl.Marker()
+          .setLngLat(lngLat[key])
+          .setPopup(
+            new Mapboxgl.Popup({ offset: 25 }).setHTML(
+              `<a  href= "https://www.google.com/maps/?q=${lngLat[
+                key
+              ].reverse()}" 
+              target="_blank" class="text-white bg-dark"><h6>Ver no Google Maps</h6></a>` // lat, lng
+            )
+          )
+          .addTo(maps);
+      }
     });
   }
 }

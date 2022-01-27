@@ -3,9 +3,9 @@ body {
   background-color: #161616 !important;
 }
 
-// tbody tr {
-//   max-height: 10% !important;
-// }
+h6 {
+  line-height: 1.5;
+}
 
 label {
   color: white;
@@ -19,10 +19,6 @@ input {
   color: white !important;
 }
 
-// tr {
-//   height: 1px !important;
-// }
-
 td,
 td.sorting_1 {
   padding-left: 25px !important;
@@ -32,6 +28,7 @@ th.sorting::after,
 th.sorting::before {
   color: #212529;
 }
+
 .id {
   width: 40px;
 }
@@ -75,10 +72,21 @@ th.sorting::before {
 }
 
 .page-item {
-  padding: 2px !important;
+  padding: 0px !important;
   margin-top: 30px;
 }
 
 .dataTables_info {
   position: absolute;
+}
+
+.mapboxgl-popup-content {
+  background-color: #212529;
+}
+.mapboxgl-popup-tip {
+  border-top-color: #212529 !important;
+}
+
+.mapboxgl-popup-close-button {
+  color: white;
 }

@@ -11,12 +11,12 @@ import { ApiBusLine } from './models/bus-line.model';
 export class ServiceService {
   constructor(private http: HttpClient) {}
 
-  public apiBusLine(): Observable<ApiBusLine[]> {
-    return this.http.get<ApiBusLine[]>(`${environment.urlBus}o`);
-  }
-
-  public apiMiniBus(): Observable<ApiBusLine[]> {
-    return this.http.get<ApiBusLine[]>(`${environment.urlBus}l`);
+  public apiBusLine(model: string): Observable<ApiBusLine[]> {
+    if (model == 'bus') {
+      return this.http.get<ApiBusLine[]>(`${environment.urlBus}o`);
+    } else {
+      return this.http.get<ApiBusLine[]>(`${environment.urlBus}l`);
+    }
   }
 
   public setItinerary(id: number): Observable<ApiBusItinerary[]> {

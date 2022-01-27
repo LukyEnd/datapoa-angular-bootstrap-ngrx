@@ -48,6 +48,7 @@ export class MiniBusComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
+    this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
   miniBusPage() {
@@ -72,7 +73,6 @@ export class MiniBusComponent implements OnInit {
 
   tableConfig() {
     this.dtOptions = {
-      // pagingType: 'full_numbers',
       pageLength: 8,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json',

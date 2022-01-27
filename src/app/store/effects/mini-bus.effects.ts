@@ -19,7 +19,7 @@ export class MiniBusEffects {
     return this.actions$.pipe(
       ofType(MiniBusLineActions.MiniBuss),
       mergeMap(() =>
-        this.serv.apiMiniBus().pipe(
+        this.serv.apiBusLine('miniBus').pipe(
           map((miniBusData) => {
             this.store.dispatch(LoderStatus({ status: false }));
             return MiniBusLineActions.MiniBussSuccess({ miniBusData });
