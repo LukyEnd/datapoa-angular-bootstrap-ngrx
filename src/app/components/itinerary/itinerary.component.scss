@@ -1,12 +1,21 @@
-h4 {
+#maps {
+  margin-top: 30px;
+  height: 50vw;
+  max-height: 70vh;
+  border-radius: 20px;
+}
+
+.itinerary {
   display: flex;
   justify-content: flex-end;
-  margin-left: 40%;
 }
-#maps {
-  height: 50vw;
-  max-height: 75vh;
-  border-radius: 20px;
+
+.itinerary h4 {
+  margin-left: 35%;
+  margin-top: -10px;
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
 }
 
 .divMap {
@@ -14,5 +23,7 @@ h4 {
 }
 
 .mapa {
-  margin-bottom: -35px;
+  margin-right: 20px;
+  margin-top: -20px;
+  margin-bottom: -20px;
 }

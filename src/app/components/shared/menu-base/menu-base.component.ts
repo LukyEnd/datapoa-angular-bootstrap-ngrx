@@ -12,4 +12,9 @@ export class MenuBaseComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleDarkTheme(): void {
+    document.body.classList.toggle('light-theme');
+    // document.getElementById('tables').classList.toggle('light-theme');
+  }
 }

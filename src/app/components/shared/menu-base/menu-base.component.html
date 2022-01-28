@@ -1,14 +1,17 @@
-<div class="base">
+<div class="menu">
   <div class="imgBus">
     <img [alt]="" src="../../../../assets/image/bus6.png" />
   </div>
-  <div class="name">
+  <div class="title">
     <h1>DataPoa Rotas</h1>
   </div>
-  <div class="buttons">
-    <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btn btn-outline-info"><i
-        class="fas fa-bus-alt"></i> Ônibus
+  <div class="divButtons">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btnMenuBus btn"><i class="fas fa-bus-alt"></i>
+      Ônibus
     </a>
-    <a [routerLink]="['/minibus']" class="btn btn-outline-info"><i class="fas fa-shuttle-van"></i> Lotação</a>
+    <a [routerLink]="['/minibus']" class="btnMenuMiniBus btn"><i class="fas fa-shuttle-van"></i> Lotação</a>
+  </div>
+  <div class="changeTheme">
+    <button (click)="toggleDarkTheme()" class="btnMenuTheme">Trocar Tema</button>
   </div>
 </div>

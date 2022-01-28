@@ -19,6 +19,8 @@ import { BusItineraryEffects } from './store/effects/bus-itinerary.effects';
 import { BusLineEffects } from './store/effects/bus-line.effects';
 import { MiniBusEffects } from './store/effects/mini-bus.effects';
 import { reducers } from './store/reducers/root.reducers';
+import { ThemeDarkComponent } from './components/shared/theme-dark/theme-dark.component';
+import { ThemeLightComponent } from './components/shared/theme-light/theme-light.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { reducers } from './store/reducers/root.reducers';
     ItineraryComponent,
     MenuBaseComponent,
     CssBaseComponent,
+    ThemeDarkComponent,
+    ThemeLightComponent,
   ],
   imports: [
     BrowserModule,

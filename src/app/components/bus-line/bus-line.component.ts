@@ -14,10 +14,7 @@ import {
 @Component({
   selector: 'app-bus-line',
   templateUrl: './bus-line.component.html',
-  styleUrls: [
-    './bus-line.component.scss',
-    '../shared/css-base/css-base.component.scss',
-  ],
+  styleUrls: ['./bus-line.component.scss'],
 })
 export class BusLineComponent implements OnInit, OnDestroy {
   busLine$!: Observable<ApiBusLine[]>;

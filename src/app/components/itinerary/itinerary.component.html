@@ -1,5 +1,4 @@
 <div class="d-flex flex-column">
-
 </div>
 <div class="container">
   <div class="row">
@@ -12,10 +11,14 @@
         <span class="visually-hidden">Loading...</span>
       </div>
       <div class="divMap mx-auto">
-        <h1 class="mapa display-4 text-light">Mapa</h1>
-        <h4 class="text-light">Itinerário de/da "{{ name | titlecase }}"</h4>
-        <hr class="line-main mb-3 bg-info" />
-        <div id="maps" class="border border-light"></div>
+        <h1 class="mapa display-4">Mapa</h1>
+        <div class="itinerary">
+          <h4 title="Itinerário de/da {{name|titlecase}}">Itinerário de/da "{{ name | titlecase
+            }}"
+          </h4>
+        </div>
+        <hr class="line-main mb-5" />
+        <div id="maps"></div>
       </div>
     </div>
   </div>

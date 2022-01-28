@@ -1,25 +1,38 @@
 img {
+  position: absolute;
   width: 100%;
-  max-width: 33px;
-  min-width: 10px;
-  margin-left: 30px;
+  max-width: 40px;
+  margin-left: 10px;
   padding-top: 4px;
 }
 
-.base {
-  background-color: rgb(50, 50, 50);
-  width: 100%;
-  height: 50px;
+h6 {
+  line-height: 1.5;
 }
 
-.base,
-.buttons {
+h1 {
+  width: 100%;
+  min-width: 200px;
+  margin-left: 70px;
+  padding-top: 5px;
+  font-size: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.menu {
+  width: 100%;
+  height: 60px;
+}
+
+.menu,
+.divButtons {
   display: flex;
   justify-content: flex-start;
   padding-top: 2px;
 }
 
-.buttons {
+.divButtons {
   width: 100%;
   max-width: 300px;
   margin-left: 20px;
@@ -27,4 +40,13 @@ img {
 
 .btn {
   margin-left: 20px;
+}
+
+.changeTheme {
+  width: 100%;
+  min-width: 150px;
+  margin-left: 20px;
+  border-radius: 50px !important;
+  display: flex;
+  justify-content: flex-end;
 }

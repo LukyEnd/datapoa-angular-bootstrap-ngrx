@@ -1,10 +1,10 @@
 <div class="d-flex flex-column">
   <h4 class="title mt-3">Linha de Ônibus</h4>
-  <hr class="line-main mb-3 bg-info" />
+  <hr class="line-main mb-3" />
 </div>
 <div class="container">
   <div class="row">
-    <div class="col mt-4">
+    <div class="col mt-1">
       <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="busLineErro">
         {{ busLineErro }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -13,11 +13,11 @@
         *ngIf="isLoading$ | async as isloading">
         <span class="visually-hidden">Loading...</span>
       </div>
-      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-dark table-striped">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped">
         <thead>
           <tr>
-            <th class="id">ID</th>
-            <th class="cod">Código</th>
+            <th>ID</th>
+            <th>Código</th>
             <th>Nome da Linha</th>
             <th>Itinerário</th>
           </tr>
@@ -28,7 +28,7 @@
             <td>{{ line.codigo }}</td>
             <td>{{ line.nome | titlecase }}</td>
             <td>
-              <button (click)="setNumberId(line.id)" class="btn btn-outline-info">
+              <button (click)="setNumberId(line.id)" class="btnRoutBus">
                 <i class="fas fa-bus-alt"></i> Ver Rotas
               </button>
             </td>
