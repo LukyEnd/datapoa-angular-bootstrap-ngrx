@@ -18,5 +18,5 @@ export const getMiniBusError = createSelector(
 
 export const getLoader = createSelector(
   selectMiniBusState,
-  (state) => state.loader
+  (state) => state.loading
 );

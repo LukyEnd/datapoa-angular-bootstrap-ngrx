@@ -1,19 +1,20 @@
 import { createReducer, on } from '@ngrx/store';
 import { ApiBusLine } from 'src/app/services/models/bus-line.model';
 import * as BusLineActions from '../actions/bus-line.actions';
+import * as LoadStatus from '../actions/loading.actions';
 
 export const busLineFeatureKey = 'busLine';
 
 export interface BusState {
   busLineData: ApiBusLine[];
   error: string;
-  loader: boolean;
+  loading: boolean;
 }
 
 export const initialState: BusState = {
   busLineData: [],
   error: '',
-  loader: false,
+  loading: true,
 };
 
 export const busReducer = createReducer(
@@ -30,6 +31,12 @@ export const busReducer = createReducer(
       ...state,
       busLineData: [],
       error: action.error,
+    };
+  }),
+  on(LoadStatus.LoderStatusSuccess, (state, action): BusState => {
+    return {
+      ...state,
+      loading: action.status,
     };
   })
 );

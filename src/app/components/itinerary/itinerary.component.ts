@@ -2,11 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as Mapboxgl from 'mapbox-gl';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import {
   getBusItineraryError,
   getBusItinerarySuccess,
+  getLoader,
 } from 'src/app/store/selectors/bus-itinerary.selectors';
 import { environment } from 'src/environments/environment';
 import * as BusItinerary from '../../store/actions/bus-itinerary.actions';
@@ -14,10 +16,14 @@ import * as BusItinerary from '../../store/actions/bus-itinerary.actions';
 @Component({
   selector: 'app-itinerary',
   templateUrl: './itinerary.component.html',
-  styleUrls: ['./itinerary.component.scss'],
+  styleUrls: [
+    './itinerary.component.scss',
+    '../shared/css-format/css-format.component.scss',
+  ],
 })
 export class ItineraryComponent implements OnInit, OnDestroy {
-  name!: string;
+  nameItinerary$!: Observable<string>;
+  nameItinerary!: string;
 
   busItinerary$!: Observable<any>;
   busItinerary: { lat: string; lng: string }[] = [];
@@ -26,13 +32,14 @@ export class ItineraryComponent implements OnInit, OnDestroy {
   busItineraryErro!: string;
 
   isLoading$!: Observable<boolean>;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
 
   subscription: Subscription[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private store: Store) {
     this.busItinerary$ = this.store.select(getBusItinerarySuccess);
     this.busItineraryErro$ = this.store.select(getBusItineraryError);
+    this.isLoading$ = this.store.select(getLoader);
   }
 
   ngOnInit(): void {
@@ -45,6 +52,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
 
   busItineraryPage() {
     const idBus = this.activatedRoute.snapshot.params.id;
+    this.store.dispatch(LoderStatus());
     this.store.dispatch(BusItinerary.loadBusItinerarys({ idBus: idBus }));
   }
 
@@ -58,7 +66,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
                 case 'idlinha':
                   break;
                 case 'nome':
-                  this.name = data[key];
+                  this.nameItinerary = data[key];
                   break;
                 case 'codigo':
                   break;
@@ -78,7 +86,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
           this.busItinerary = [];
 
           return {
-            name: this.name,
+            name: this.nameItinerary,
           };
         })
     );
@@ -86,6 +94,11 @@ export class ItineraryComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.busItineraryErro$.subscribe((erro) => {
         this.busItineraryErro = erro;
+      })
+    );
+    this.subscription.push(
+      this.isLoading$.subscribe((loadin) => {
+        this.isLoading = loadin;
       })
     );
   }
@@ -135,7 +148,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
               `<a  href= "https://www.google.com/maps/?q=${lngLat[
                 key
               ].reverse()}" 
-              target="_blank" class="text-white bg-dark"><h6>Ver no Google Maps</h6></a>` // lat, lng
+              target="_blank" class="googleMaps"><h6>Ver no Google Maps</h6></a>` // lat, lng
             )
           )
           .addTo(maps);

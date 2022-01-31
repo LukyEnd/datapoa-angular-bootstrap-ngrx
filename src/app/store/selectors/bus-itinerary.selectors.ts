@@ -15,3 +15,8 @@ export const getBusItineraryError = createSelector(
   selectBusItineraryState,
   (state) => state.error
 );
+
+export const getLoader = createSelector(
+  selectBusItineraryState,
+  (state) => state.loading
+);

@@ -17,5 +17,5 @@ export const getBusLineError = createSelector(
 
 export const getLoader = createSelector(
   selectBusLineState,
-  (state) => state.loader
+  (state) => state.loading
 );

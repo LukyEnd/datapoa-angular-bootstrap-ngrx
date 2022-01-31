@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { LoderStatus } from 'src/app/store/actions/loader.actions';
+import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { ApiBusLine } from '../../services/models/bus-line.model';
 import * as MiniBusActions from '../../store/actions/mini-bus.actions';
 import {
@@ -16,7 +16,7 @@ import {
   templateUrl: './mini-bus.component.html',
   styleUrls: [
     './mini-bus.component.scss',
-    '../shared/css-base/css-base.component.scss',
+    '../shared/css-format/css-format.component.scss',
   ],
 })
 export class MiniBusComponent implements OnInit {
@@ -27,7 +27,7 @@ export class MiniBusComponent implements OnInit {
   miniBusErro!: string;
 
   isLoading$!: Observable<boolean>;
-  isLoading = false;
+  isLoading: boolean = false;
 
   subscription: Subscription[] = [];
 
@@ -52,7 +52,7 @@ export class MiniBusComponent implements OnInit {
   }
 
   miniBusPage() {
-    this.store.dispatch(LoderStatus({ status: true }));
+    this.store.dispatch(LoderStatus());
     this.store.dispatch(MiniBusActions.MiniBuss());
   }
 
@@ -67,6 +67,11 @@ export class MiniBusComponent implements OnInit {
       this.miniBusErro$.subscribe((erro) => {
         this.miniBusErro = erro;
         this.dtTrigger.next();
+      })
+    );
+    this.subscription.push(
+      this.isLoading$.subscribe((loadin) => {
+        this.isLoading = loadin;
       })
     );
   }

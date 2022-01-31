@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThemeLightComponent } from './theme-light.component';
+import { CssFormatComponent } from './css-format.component';
 
-describe('ThemeLightComponent', () => {
-  let component: ThemeLightComponent;
-  let fixture: ComponentFixture<ThemeLightComponent>;
+describe('CssFormatComponent', () => {
+  let component: CssFormatComponent;
+  let fixture: ComponentFixture<CssFormatComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ThemeLightComponent ]
+      declarations: [ CssFormatComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThemeLightComponent);
+    fixture = TestBed.createComponent(CssFormatComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

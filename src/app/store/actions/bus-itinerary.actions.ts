@@ -1,4 +1,4 @@
-import { ApiBusItinerary } from './../../services/models/bus-itinerary.module';
+import { ApiBusItinerary } from '../../services/models/bus-itinerary.model';
 import { createAction, props } from '@ngrx/store';
 
 export const loadBusItinerarys = createAction(
@@ -13,5 +13,5 @@ export const loadBusItinerarysSuccess = createAction(
 
 export const loadBusItinerarysFailure = createAction(
   '[BusItinerary] Load BusItinerarys Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );

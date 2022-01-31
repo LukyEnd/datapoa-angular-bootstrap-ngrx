@@ -3,38 +3,49 @@
   <hr class="line-main mb-3" />
 </div>
 <div class="container">
-  <div class="row">
+  <div class="divTable row">
     <div class="col mt-1">
-      <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="busLineErro">
-        {{ busLineErro }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <div class="divError" *ngIf="busLineErro">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ busLineErro }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="divBtnReturn">
+          <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btnReturnBus btn"><i
+              class="fas fa-bus-alt"></i>
+            Ônibus
+          </a>
+          <a [routerLink]="['/minibus']" class="btnReturnMiniBus btn"><i class="fas fa-shuttle-van"></i> Lotação</a>
+        </div>
       </div>
       <div class="spinner-border text-danger position-absolute top-50 start-50" role="status"
         *ngIf="isLoading$ | async as isloading">
         <span class="visually-hidden">Loading...</span>
       </div>
-      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Código</th>
-            <th>Nome da Linha</th>
-            <th>Itinerário</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let line of busLine">
-            <td>{{ line.id }}</td>
-            <td>{{ line.codigo }}</td>
-            <td>{{ line.nome | titlecase }}</td>
-            <td>
-              <button (click)="setNumberId(line.id)" class="btnRoutBus">
-                <i class="fas fa-bus-alt"></i> Ver Rotas
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Código</th>
+              <th>Nome da Linha</th>
+              <th>Itinerário</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let line of busLine">
+              <td>{{ line.id }}</td>
+              <td>{{ line.codigo }}</td>
+              <td>{{ line.nome | titlecase }}</td>
+              <td>
+                <button (click)="setNumberId(line.id)" class="btnRoutBus btn btn-outline-info">
+                  <i class="fas fa-bus-alt"></i> Ver Rotas
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

@@ -1,19 +1,20 @@
 import { createReducer, on } from '@ngrx/store';
 import { ApiBusLine } from 'src/app/services/models/bus-line.model';
 import * as MiniBusActions from '../actions/mini-bus.actions';
+import * as LoadStatus from '../actions/loading.actions';
 
 export const miniBusFeatureKey = 'miniBus';
 
 export interface MiniBusState {
   miniBusData: ApiBusLine[];
   error: string;
-  loader: boolean;
+  loading: boolean;
 }
 
 export const initialState: MiniBusState = {
   miniBusData: [],
   error: '',
-  loader: false,
+  loading: true,
 };
 
 export const miniBusReducer = createReducer(
@@ -30,6 +31,12 @@ export const miniBusReducer = createReducer(
       ...state,
       miniBusData: [],
       error: action.error,
+    };
+  }),
+  on(LoadStatus.LoderStatusSuccess, (state, action): MiniBusState => {
+    return {
+      ...state,
+      loading: action.status,
     };
   })
 );

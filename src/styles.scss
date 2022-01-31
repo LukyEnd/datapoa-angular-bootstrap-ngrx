@@ -1,9 +1,11 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/containers";
+
 /* Mudar Theme  */
 body.light-theme {
   --text-color: #222;
   --bkg-color: #fff;
   --bkg-color-menu: #ced4da;
-  --bkg-color-table: rgba(0, 0, 0, 0.05);
   --btn-txt-color: white;
   --btn-bg-color: rgb(11, 88, 160);
   --border-color-um: 0 0 0 2px #ced4da;
@@ -15,7 +17,6 @@ body {
   --text-color: #eee;
   --bkg-color: #252222;
   --bkg-color-menu: rgb(50, 50, 50);
-  --bkg-color-table: rgb(50, 50, 50);
   --btn-txt-color: rgb(46, 43, 43);
   --btn-bg-color: rgb(20, 211, 195);
   --border-color-um: 0 0 0 2px rgb(50, 50, 50);
@@ -53,7 +54,7 @@ p {
 }
 
 hr {
-  color: var(--btn-bg-color) !important;
+  background-color: var(--btn-bg-color) !important;
 }
 
 button,
@@ -62,7 +63,7 @@ button,
   background-color: var(--btn-bg-color);
 }
 
-.menu {
+.divMenu {
   background-color: var(--bkg-color-menu);
 }
 
@@ -76,24 +77,10 @@ input {
   color: var(--text-color) !important;
 }
 
-th.sorting.sorting_asc::before,
-th.sorting.sorting_asc::after {
-  // color: blue;
-}
-
 th.sorting::after,
 th.sorting::before {
-  // color: var(--bs-table-color);
+  color: var(--bs-table-color);
 }
-
-// table.dataTable > thead .sorting
-// // table.dataTable > thead .sorting_asc,
-// // table.dataTable > thead .sorting_desc,
-// // table.dataTable > thead .sorting_asc_disabled,
-// {
-//   color: red;
-//   position: relative;
-// }
 
 .table table-striped {
   color: var(--text-color) !important;
@@ -118,13 +105,21 @@ th.sorting::before {
   background-color: var(--bkg-color);
 }
 
+.paginate_button {
+  background-color: black !important;
+}
+
 //Cores do Mapa
+.googleMaps {
+  color: var(--text-color);
+}
+
 .mapboxgl-popup-content {
   background-color: var(--bkg-color);
 }
 
 .mapboxgl-popup-tip {
-  border-top-color: var(--text-color) !important;
+  border-top-color: var(--bkg-color) !important;
 }
 
 .mapboxgl-popup-close-button {
@@ -136,15 +131,6 @@ th.sorting::before {
 }
 
 //Formatação da Tabela
-.flex-column {
-  padding-top: 5px;
-  padding-left: 20%;
-  padding-right: 20%;
-  font-size: 25px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
 div .col {
   width: 100% !important;
   display: flex !important;
@@ -153,6 +139,36 @@ div .col {
 
 div .divTable {
   width: 100%;
+}
+
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting {
+  background-image: none !important;
+}
+
+.page-link {
+  border-color: var(--text-color) !important;
+  color: var(--text-color) !important;
+  background-color: var(--bkg-color) !important;
+}
+
+.page-link:hover {
+  border: 1px solid var(--btn-bg-color);
+  background-color: var(--btn-bg-color) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border: 0px solid transparent !important;
+}
+
+.flex-column {
+  padding-top: 5px;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 25px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .dataTables_wrapper {
@@ -177,59 +193,8 @@ div .divTable {
 
 .page-item {
   padding: 0px !important;
-  margin-top: 10px !important;
 }
 
-//----------------Config Normal
-hr {
-  height: 3px !important;
-  border-radius: 30px;
-}
-
-.fas {
-  margin-right: 10px;
-}
-
-.title {
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 5px;
-}
-
-.btnRoutBus,
-.btnRoutMiniBus {
-  width: 100%;
-  min-width: 120px;
-  max-width: 200px;
-  height: 30px;
-  border-radius: 20px;
-  border: none;
-}
-
-.btnErroMiniBus,
-.btnErroBus {
-  width: 100%;
-  max-width: 150px;
-  border: none;
-}
-
-.btnMenuBus,
-.btnMenuMiniBus {
-  width: 100%;
-  min-width: 150px;
-  height: 100%;
-  max-height: 40px;
-  margin-top: 5px;
-  border-radius: 10px;
-  border: none;
-}
-
-.btnMenuTheme {
-  border: none;
-  border-radius: 2px;
-}
-
-//Ocultos da Tabela
 :root {
   --bs-body-line-height: 1;
 }

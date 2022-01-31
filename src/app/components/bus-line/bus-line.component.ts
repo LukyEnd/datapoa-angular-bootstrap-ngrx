@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { LoderStatus } from 'src/app/store/actions/loader.actions';
+import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { getBusLineSuccess } from 'src/app/store/selectors/bus-line.selectors';
 import { ApiBusLine } from '../../services/models/bus-line.model';
 import * as BusActions from '../../store/actions/bus-line.actions';
@@ -14,7 +14,10 @@ import {
 @Component({
   selector: 'app-bus-line',
   templateUrl: './bus-line.component.html',
-  styleUrls: ['./bus-line.component.scss'],
+  styleUrls: [
+    './bus-line.component.scss',
+    '../shared/css-format/css-format.component.scss',
+  ],
 })
 export class BusLineComponent implements OnInit, OnDestroy {
   busLine$!: Observable<ApiBusLine[]>;
@@ -24,7 +27,7 @@ export class BusLineComponent implements OnInit, OnDestroy {
   busLineErro!: string;
 
   isLoading$!: Observable<boolean>;
-  isLoading = false;
+  isLoading: boolean = false;
 
   subscription: Subscription[] = [];
 
@@ -44,12 +47,11 @@ export class BusLineComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
   busLinePage() {
-    this.store.dispatch(LoderStatus({ status: true }));
+    this.store.dispatch(LoderStatus());
     this.store.dispatch(BusActions.loadBusLines());
   }
 
@@ -64,6 +66,11 @@ export class BusLineComponent implements OnInit, OnDestroy {
       this.busLineErro$.subscribe((erro) => {
         this.busLineErro = erro;
         this.dtTrigger.next();
+      })
+    );
+    this.subscription.push(
+      this.isLoading$.subscribe((loadin) => {
+        this.isLoading = loadin;
       })
     );
   }
