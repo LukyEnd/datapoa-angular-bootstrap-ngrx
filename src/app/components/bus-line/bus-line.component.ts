@@ -5,7 +5,7 @@ import { Observable, Subject, Subscription } from 'rxjs';
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { getBusLineSuccess } from 'src/app/store/selectors/bus-line.selectors';
 import { AppState } from 'src/app/store/state/app.state';
-import { ApiBusLine } from '../../services/models/bus-line.model';
+import { BusLineDetail } from '../../services/models/bus-line.model';
 import * as BusActions from '../../store/actions/bus-line.actions';
 import {
   getBusLineError,
@@ -21,8 +21,8 @@ import {
   ],
 })
 export class BusLineComponent implements OnInit, OnDestroy {
-  busLine$!: Observable<ApiBusLine[]>;
-  busLine!: ApiBusLine[];
+  busLine$!: Observable<BusLineDetail[]>;
+  busLine!: BusLineDetail[];
 
   busLineErro$!: Observable<string>;
   busLineErro!: string;
@@ -42,7 +42,7 @@ export class BusLineComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.busLinePage();
+    this.actionsPageInitial();
     this.dataLineBus();
     this.tableConfig();
   }
@@ -51,7 +51,7 @@ export class BusLineComponent implements OnInit, OnDestroy {
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
-  busLinePage() {
+  actionsPageInitial() {
     this.store.dispatch(LoderStatus());
     this.store.dispatch(BusActions.loadBusLines());
   }

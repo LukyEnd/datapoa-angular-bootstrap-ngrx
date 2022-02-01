@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { AppState } from 'src/app/store/state/app.state';
-import { ApiBusLine } from '../../services/models/bus-line.model';
+import { BusLineDetail } from '../../services/models/bus-line.model';
 import * as MiniBusActions from '../../store/actions/mini-bus.actions';
 import {
   getLoader,
@@ -21,8 +21,8 @@ import {
   ],
 })
 export class MiniBusComponent implements OnInit {
-  miniBusLine$!: Observable<ApiBusLine[]>;
-  miniBusLine!: ApiBusLine[];
+  miniBusLine$!: Observable<BusLineDetail[]>;
+  miniBusLine!: BusLineDetail[];
 
   miniBusErro$!: Observable<string>;
   miniBusErro!: string;
@@ -42,7 +42,7 @@ export class MiniBusComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.miniBusPage();
+    this.actionsPageInitial();
     this.dataMiniBus();
     this.tableConfig();
   }
@@ -53,7 +53,7 @@ export class MiniBusComponent implements OnInit {
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
-  miniBusPage() {
+  actionsPageInitial() {
     this.store.dispatch(LoderStatus());
     this.store.dispatch(MiniBusActions.MiniBuss());
   }

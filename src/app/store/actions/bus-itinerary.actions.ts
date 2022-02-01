@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ApiBusItinerary } from '../../services/models/bus-itinerary.model';
+import { BusItinerary } from '../../services/models/bus-itinerary.model';
 
 export const loadBusItinerarys = createAction(
   '[BusItinerary] Load BusItinerarys',
@@ -8,7 +8,7 @@ export const loadBusItinerarys = createAction(
 
 export const loadBusItinerarysSuccess = createAction(
   '[BusItinerary] Load BusItinerarys Success',
-  props<{ infoBus: ApiBusItinerary[] }>()
+  props<{ infoBus: BusItinerary[] }>()
 );
 
 export const loadBusItinerarysFailure = createAction(

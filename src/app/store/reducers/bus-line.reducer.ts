@@ -1,12 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { ApiBusLine } from 'src/app/services/models/bus-line.model';
+import { BusLineDetail } from 'src/app/services/models/bus-line.model';
 import * as BusLineActions from '../actions/bus-line.actions';
 import * as LoadStatus from '../actions/loading.actions';
 
 export const busLineFeatureKey = 'busLine';
 
 export interface BusState {
-  busLineData: ApiBusLine[];
+  busLineData: BusLineDetail[];
   error: string;
   loading: boolean;
 }

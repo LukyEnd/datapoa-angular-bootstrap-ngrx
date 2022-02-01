@@ -12,7 +12,7 @@ import { getChangeTheme } from 'src/app/store/selectors/change-theme.selectors';
 })
 export class MenuComponent implements OnInit, OnDestroy {
   changeTheme$!: Observable<string>;
-  changeTheme: string = 'dark-theme';
+  changeTheme!: string;
 
   subscription: Subscription[] = [];
 

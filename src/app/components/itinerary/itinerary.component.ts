@@ -47,20 +47,20 @@ export class ItineraryComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.busItineraryPage();
-    this.dataItineraryBus();
+    this.actionsPageInitial();
+    this.dataItinerary();
   }
   ngOnDestroy(): void {
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
-  busItineraryPage() {
+  actionsPageInitial() {
     const idBus = this.activatedRoute.snapshot.params.id;
     this.store.dispatch(LoderStatus());
     this.store.dispatch(BusItinerary.loadBusItinerarys({ idBus: idBus }));
   }
 
-  dataItineraryBus() {
+  dataItinerary() {
     this.subscription.push(
       this.busItinerary$
         .pipe(

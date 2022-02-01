@@ -1,12 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { ApiBusItinerary } from '../../services/models/bus-itinerary.model';
+import { BusItinerary } from '../../services/models/bus-itinerary.model';
 import * as BusItineraryActions from '../actions/bus-itinerary.actions';
 import * as LoadStatus from '../actions/loading.actions';
 
 export const busItineraryFeatureKey = 'busItinerary';
 
 export interface ItineraryState {
-  infoBus: ApiBusItinerary[];
+  infoBus: BusItinerary[];
   error: string;
   loading: boolean;
 }

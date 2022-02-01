@@ -51,14 +51,6 @@ hr {
   border: none;
 }
 
-.divImgBus img {
-  position: absolute;
-  width: 100%;
-  max-width: 40px;
-  margin-left: 10px;
-  padding-top: 4px;
-}
-
 .fas {
   margin-right: 10px;
 }
@@ -67,12 +59,4 @@ hr {
   margin-left: 30px;
   margin-right: 30px;
   margin-top: 5px;
-}
-
-.changeTheme {
-  width: 100%;
-  min-width: 150px;
-  margin-left: 20px;
-  display: flex;
-  justify-content: flex-end;
 }

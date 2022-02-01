@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ApiBusItinerary } from './models/bus-itinerary.model';
-import { ApiBusLine } from './models/bus-line.model';
+import { BusItinerary } from './models/bus-itinerary.model';
+import { BusLineDetail } from './models/bus-line.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,15 +11,15 @@ import { ApiBusLine } from './models/bus-line.model';
 export class ConsultApiService {
   constructor(private http: HttpClient) {}
 
-  public apiBusLine(model: string): Observable<ApiBusLine[]> {
+  public apiBusLine(model: string): Observable<BusLineDetail[]> {
     if (model == 'bus') {
-      return this.http.get<ApiBusLine[]>(`${environment.urlBus}o`);
+      return this.http.get<BusLineDetail[]>(`${environment.urlBus}o`);
     } else {
-      return this.http.get<ApiBusLine[]>(`${environment.urlBus}l`);
+      return this.http.get<BusLineDetail[]>(`${environment.urlBus}l`);
     }
   }
 
-  public setItinerary(id: number): Observable<ApiBusItinerary[]> {
-    return this.http.get<ApiBusItinerary[]>(`${environment.urlItinerary}${id}`);
+  public setItinerary(id: number): Observable<BusItinerary[]> {
+    return this.http.get<BusItinerary[]>(`${environment.urlItinerary}${id}`);
   }
 }

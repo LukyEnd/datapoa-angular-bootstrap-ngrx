@@ -1,4 +1,4 @@
-export interface ApiBusItinerary {
+export interface BusItinerary {
   idlinha: number;
   nome: string;
   codigo: string;

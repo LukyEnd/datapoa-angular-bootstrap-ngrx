@@ -1,12 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { ApiBusLine } from 'src/app/services/models/bus-line.model';
+import { BusLineDetail } from 'src/app/services/models/bus-line.model';
 import * as LoadStatus from '../actions/loading.actions';
 import * as MiniBusActions from '../actions/mini-bus.actions';
 
 export const miniBusFeatureKey = 'miniBus';
 
 export interface MiniBusState {
-  miniBusData: ApiBusLine[];
+  miniBusData: BusLineDetail[];
   error: string;
   loading: boolean;
 }
