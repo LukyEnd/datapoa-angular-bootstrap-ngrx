@@ -36,7 +36,7 @@ export const busReducer = createReducer(
   on(LoadStatus.LoderStatusSuccess, (state, action): BusState => {
     return {
       ...state,
-      loading: action.status,
+      loading: action.loading,
     };
   })
 );

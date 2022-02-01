@@ -1,8 +1,8 @@
-import { ApiBusItinerary } from './models/bus-itinerary.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ApiBusItinerary } from './models/bus-itinerary.model';
 import { ApiBusLine } from './models/bus-line.model';
 
 @Injectable({

@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import * as BusItineraryActions from '../actions/bus-itinerary.actions';
 import { ApiBusItinerary } from '../../services/models/bus-itinerary.model';
+import * as BusItineraryActions from '../actions/bus-itinerary.actions';
 import * as LoadStatus from '../actions/loading.actions';
 
 export const busItineraryFeatureKey = 'busItinerary';
@@ -17,7 +17,7 @@ export const initialState: ItineraryState = {
   loading: true,
 };
 
-export const Itineraryreducer = createReducer(
+export const itineraryReducer = createReducer(
   initialState,
 
   on(
@@ -43,7 +43,7 @@ export const Itineraryreducer = createReducer(
   on(LoadStatus.LoderStatusSuccess, (state, action): ItineraryState => {
     return {
       ...state,
-      loading: action.status,
+      loading: action.loading,
     };
   })
 );

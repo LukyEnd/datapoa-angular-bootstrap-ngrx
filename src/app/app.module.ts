@@ -13,12 +13,12 @@ import { BusLineComponent } from './components/bus-line/bus-line.component';
 import { ErrorsComponent } from './components/errors/errors.component';
 import { ItineraryComponent } from './components/itinerary/itinerary.component';
 import { MiniBusComponent } from './components/mini-bus/mini-bus.component';
+import { CssBaseComponent } from './components/shared/css-base/css-base.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { BusItineraryEffects } from './store/effects/bus-itinerary.effects';
 import { BusLineEffects } from './store/effects/bus-line.effects';
 import { MiniBusEffects } from './store/effects/mini-bus.effects';
 import { reducers } from './store/reducers/root.reducers';
-import { CssFormatComponent } from './components/shared/css-format/css-format.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +28,14 @@ import { CssFormatComponent } from './components/shared/css-format/css-format.co
     MiniBusComponent,
     ItineraryComponent,
     MenuComponent,
-    CssFormatComponent,
+    CssBaseComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    DataTablesModule,
+    DataTablesModule.forRoot(),
     StoreModule,
     EffectsModule.forRoot([
       BusLineEffects,

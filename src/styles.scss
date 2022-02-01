@@ -1,7 +1,7 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap/scss/containers";
 
-/* Mudar Theme  */
+//Theme
 body.light-theme {
   --text-color: #222;
   --bkg-color: #fff;
@@ -67,7 +67,7 @@ button,
   background-color: var(--bkg-color-menu);
 }
 
-//Cores da Tabela
+//color table
 label {
   color: var(--text-color);
 }
@@ -109,7 +109,7 @@ th.sorting::before {
   background-color: black !important;
 }
 
-//Cores do Mapa
+//color Map
 .googleMaps {
   color: var(--text-color);
 }
@@ -130,7 +130,7 @@ th.sorting::before {
   box-shadow: var(--border-color-um), var(--border-color-dois) !important;
 }
 
-//Formatação da Tabela
+//Format Table
 div .col {
   width: 100% !important;
   display: flex !important;
@@ -148,9 +148,12 @@ table.dataTable thead .sorting {
 }
 
 .page-link {
-  border-color: var(--text-color) !important;
   color: var(--text-color) !important;
   background-color: var(--bkg-color) !important;
+}
+
+.pagination {
+  border: 0px solid transparent !important;
 }
 
 .page-link:hover {

@@ -1,5 +1,5 @@
-import { ApiBusItinerary } from '../../services/models/bus-itinerary.model';
 import { createAction, props } from '@ngrx/store';
+import { ApiBusItinerary } from '../../services/models/bus-itinerary.model';
 
 export const loadBusItinerarys = createAction(
   '[BusItinerary] Load BusItinerarys',

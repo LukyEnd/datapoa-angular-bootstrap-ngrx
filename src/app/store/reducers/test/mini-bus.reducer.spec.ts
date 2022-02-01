@@ -1,13 +1,26 @@
-import { reducer, initialState } from '../mini-bus.reducer';
+import * as miniBusLoading from '../../actions/loading.actions';
+import * as miniBusAction from '../../actions/mini-bus.actions';
+import * as miniBusReducer from '../../reducers/mini-bus.reducer';
 
 describe('MiniBus Reducer', () => {
-  describe('an unknown action', () => {
-    it('should return the previous state', () => {
-      const action = {} as any;
+  it('miniBusData should have a miniBusData', () => {
+    const action = miniBusAction.MiniBussSuccess({ miniBusData: [] });
+    const state = miniBusReducer.miniBusReducer(undefined, action);
 
-      const result = reducer(initialState, action);
+    expect(state.miniBusData).toBe([]);
+  });
 
-      expect(result).toBe(initialState);
-    });
+  it('error should be error', () => {
+    const action = miniBusAction.MiniBussFailure({ error: '' });
+    const state = miniBusReducer.miniBusReducer(undefined, action);
+
+    expect(state.error).toBe('');
+  });
+
+  it('loading should be loading', () => {
+    const action = miniBusLoading.LoderStatusSuccess({ loading: true });
+    const state = miniBusReducer.miniBusReducer(undefined, action);
+
+    expect(state.loading).toBe(true);
   });
 });

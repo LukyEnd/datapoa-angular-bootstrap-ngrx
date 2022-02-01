@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { ConsultApiService } from 'src/app/services/consult-api.service';
-import { ApiBusItinerary } from 'src/app/services/models/bus-itinerary.model';
 import * as BusItineraryActions from '../actions/bus-itinerary.actions';
 import { LoderStatusSuccess } from '../actions/loading.actions';
 import { ErrorBuilder } from '../builder/erro-builder';
@@ -24,13 +23,13 @@ export class BusItineraryEffects {
       mergeMap((data) =>
         this.serv.setItinerary(data.idBus).pipe(
           map((infoBus) => {
-            this.store.dispatch(LoderStatusSuccess({ status: false }));
+            this.store.dispatch(LoderStatusSuccess({ loading: false }));
             return BusItineraryActions.loadBusItinerarysSuccess({
               infoBus: infoBus,
             });
           }),
           catchError((error) => {
-            this.store.dispatch(LoderStatusSuccess({ status: true }));
+            this.store.dispatch(LoderStatusSuccess({ loading: true }));
             return of(
               BusItineraryActions.loadBusItinerarysFailure({
                 error: ErrorBuilder.genericError(error),

@@ -1,14 +1,14 @@
 import { createAction, props } from '@ngrx/store';
 import { ApiBusLine } from 'src/app/services/models/bus-line.model';
 
-export const loadBusLines = createAction('[BusLine] Buscando dados da API');
+export const loadBusLines = createAction('[BusLine] Load BusLine');
 
 export const loadBusLinesSuccess = createAction(
-  '[BusLine] Dados da API buscados com sucesso',
+  '[BusLine] Load BusLine Success',
   props<{ busLineData: ApiBusLine[] }>()
 );
 
 export const loadBusLinesFailure = createAction(
-  '[BusLine] Dados da API não buscados',
+  '[BusLine] Load BusLine Failure',
   props<{ error: string }>()
 );

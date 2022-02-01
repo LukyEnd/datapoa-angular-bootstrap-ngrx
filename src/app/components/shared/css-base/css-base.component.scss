@@ -20,27 +20,6 @@ hr {
   justify-content: space-evenly;
 }
 
-.divMenu {
-  width: 100%;
-  height: 60px;
-}
-
-.divMenu,
-.divBtnMenu {
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 2px;
-}
-
-.divBtnMenu {
-  width: 100%;
-  max-width: 300px;
-  margin-left: 20px;
-  margin-left: 20px;
-}
-
-.btnMenuBus,
-.btnMenuMiniBus,
 .btnReturnBus,
 .btnReturnMiniBus {
   width: 100%;
@@ -50,21 +29,9 @@ hr {
   border: none;
 }
 
-.btnMenuBus,
-.btnMenuMiniBus {
-  min-width: 150px;
-  max-height: 40px;
-  margin-left: 20px;
-}
-
 .btnReturnBus,
 .btnReturnMiniBus {
   max-width: 200px;
-}
-
-.btnMenuTheme {
-  border: none;
-  border-radius: 2px;
 }
 
 .btnRoutBus,
@@ -82,16 +49,6 @@ hr {
   width: 100%;
   max-width: 150px;
   border: none;
-}
-
-.titleMenu h1 {
-  width: 100%;
-  min-width: 200px;
-  margin-left: 70px;
-  padding-top: 5px;
-  font-size: 30px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .divImgBus img {

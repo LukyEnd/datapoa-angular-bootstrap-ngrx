@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { ApiBusLine } from 'src/app/services/models/bus-line.model';
-import * as MiniBusActions from '../actions/mini-bus.actions';
 import * as LoadStatus from '../actions/loading.actions';
+import * as MiniBusActions from '../actions/mini-bus.actions';
 
 export const miniBusFeatureKey = 'miniBus';
 
@@ -36,7 +36,7 @@ export const miniBusReducer = createReducer(
   on(LoadStatus.LoderStatusSuccess, (state, action): MiniBusState => {
     return {
       ...state,
-      loading: action.status,
+      loading: action.loading,
     };
   })
 );

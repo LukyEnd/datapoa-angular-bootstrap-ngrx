@@ -10,6 +10,7 @@ import {
   getBusItinerarySuccess,
   getLoader,
 } from 'src/app/store/selectors/bus-itinerary.selectors';
+import { AppState } from 'src/app/store/state/app.state';
 import { environment } from 'src/environments/environment';
 import * as BusItinerary from '../../store/actions/bus-itinerary.actions';
 
@@ -18,7 +19,7 @@ import * as BusItinerary from '../../store/actions/bus-itinerary.actions';
   templateUrl: './itinerary.component.html',
   styleUrls: [
     './itinerary.component.scss',
-    '../shared/css-format/css-format.component.scss',
+    '../shared/css-base/css-base.component.scss',
   ],
 })
 export class ItineraryComponent implements OnInit, OnDestroy {
@@ -36,7 +37,10 @@ export class ItineraryComponent implements OnInit, OnDestroy {
 
   subscription: Subscription[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private store: Store) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private store: Store<AppState>
+  ) {
     this.busItinerary$ = this.store.select(getBusItinerarySuccess);
     this.busItineraryErro$ = this.store.select(getBusItineraryError);
     this.isLoading$ = this.store.select(getLoader);

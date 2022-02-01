@@ -23,15 +23,15 @@ export class MiniBusEffects {
       mergeMap(() =>
         this.serv.apiBusLine('miniBus').pipe(
           map((miniBusData) => {
-            this.store.dispatch(LoderStatusSuccess({ status: false }));
+            this.store.dispatch(LoderStatusSuccess({ loading: false }));
             return MiniBusLineActions.MiniBussSuccess({ miniBusData });
           })
         )
       ),
       catchError((error) => {
-        this.store.dispatch(LoderStatusSuccess({ status: true }));
+        this.store.dispatch(LoderStatusSuccess({ loading: true }));
         // if (error) {
-        //   switch (error.status) {
+        //   switch (error.loading) {
         //     case 503:
         //       return of(
         //         MiniBusLineActions.MiniBussFailure({

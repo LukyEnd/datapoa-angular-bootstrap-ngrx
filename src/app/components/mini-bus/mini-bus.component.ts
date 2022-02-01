@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
+import { AppState } from 'src/app/store/state/app.state';
 import { ApiBusLine } from '../../services/models/bus-line.model';
 import * as MiniBusActions from '../../store/actions/mini-bus.actions';
 import {
@@ -16,7 +17,7 @@ import {
   templateUrl: './mini-bus.component.html',
   styleUrls: [
     './mini-bus.component.scss',
-    '../shared/css-format/css-format.component.scss',
+    '../shared/css-base/css-base.component.scss',
   ],
 })
 export class MiniBusComponent implements OnInit {
@@ -34,7 +35,7 @@ export class MiniBusComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private router: Router, private store: Store) {
+  constructor(private router: Router, private store: Store<AppState>) {
     this.miniBusLine$ = this.store.select(getMiniBusSuccess);
     this.miniBusErro$ = this.store.select(getMiniBusError);
     this.isLoading$ = this.store.select(getLoader);

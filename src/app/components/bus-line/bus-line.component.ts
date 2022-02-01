@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { getBusLineSuccess } from 'src/app/store/selectors/bus-line.selectors';
+import { AppState } from 'src/app/store/state/app.state';
 import { ApiBusLine } from '../../services/models/bus-line.model';
 import * as BusActions from '../../store/actions/bus-line.actions';
 import {
@@ -16,7 +17,7 @@ import {
   templateUrl: './bus-line.component.html',
   styleUrls: [
     './bus-line.component.scss',
-    '../shared/css-format/css-format.component.scss',
+    '../shared/css-base/css-base.component.scss',
   ],
 })
 export class BusLineComponent implements OnInit, OnDestroy {
@@ -34,7 +35,7 @@ export class BusLineComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private router: Router, private store: Store) {
+  constructor(private router: Router, private store: Store<AppState>) {
     this.busLine$ = this.store.select(getBusLineSuccess);
     this.busLineErro$ = this.store.select(getBusLineError);
     this.isLoading$ = this.store.select(getLoader);

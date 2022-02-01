@@ -16,8 +16,7 @@
           <a [routerLink]="['/minibus']" class="btnReturnMiniBus btn"><i class="fas fa-shuttle-van"></i> Lotação</a>
         </div>
       </div>
-      <div class="spinner-border text-danger position-absolute top-50 start-50" role="status"
-        *ngIf="isLoading$ | async as isloading">
+      <div class="spinner-border text-danger position-absolute top-50 start-50" *ngIf="isLoading$ | async as isloading">
         <span class="visually-hidden">Loading...</span>
       </div>
       <div>

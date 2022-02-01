@@ -1,13 +1,28 @@
-import { reducer, initialState } from '../bus-itinerary.reducer';
+import * as itineraryAction from '../../actions/bus-itinerary.actions';
+import * as itineraryLoading from '../../actions/loading.actions';
+import * as itineraryReducer from '../../reducers/bus-itinerary.reducer';
 
 describe('BusItinerary Reducer', () => {
-  describe('an unknown action', () => {
-    it('should return the previous state', () => {
-      const action = {} as any;
+  it('infoBus should have a infoBus', () => {
+    const action = itineraryAction.loadBusItinerarysSuccess({ infoBus: [] });
+    const state = itineraryReducer.itineraryReducer(undefined, action);
 
-      const result = reducer(initialState, action);
+    expect(state.infoBus).toEqual([]);
+  });
 
-      expect(result).toBe(initialState);
+  it('error should be error', () => {
+    const action = itineraryAction.loadBusItinerarysFailure({
+      error: '',
     });
+    const state = itineraryReducer.itineraryReducer(undefined, action);
+
+    expect(state.error).toEqual('');
+  });
+
+  it('loading should be loading', () => {
+    const action = itineraryLoading.LoderStatusSuccess({ loading: true });
+    const state = itineraryReducer.itineraryReducer(undefined, action);
+
+    expect(state.loading).toEqual(true);
   });
 });

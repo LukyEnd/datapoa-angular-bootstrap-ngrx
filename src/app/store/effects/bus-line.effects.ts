@@ -23,15 +23,15 @@ export class BusLineEffects {
       mergeMap(() =>
         this.serv.apiBusLine('bus').pipe(
           map((busLineData) => {
-            this.store.dispatch(LoderStatusSuccess({ status: false }));
+            this.store.dispatch(LoderStatusSuccess({ loading: false }));
             return BusLineActions.loadBusLinesSuccess({
               busLineData: busLineData,
             });
           }),
           catchError((error) => {
-            this.store.dispatch(LoderStatusSuccess({ status: true }));
+            this.store.dispatch(LoderStatusSuccess({ loading: true }));
             // if (error) {
-            //   switch (error.status) {
+            //   switch (error.loading) {
             //     case 503:
             //       return of(
             //         BusLineActions.loadBusLinesFailure({

@@ -1,14 +1,14 @@
 import { createAction, props } from '@ngrx/store';
 import { ApiBusLine } from 'src/app/services/models/bus-line.model';
 
-export const MiniBuss = createAction('[MiniBus] Buscando dados da API');
+export const MiniBuss = createAction('[MiniBus] Load MiniBus');
 
 export const MiniBussSuccess = createAction(
-  '[MiniBus] Dados da API buscados com sucesso',
+  '[MiniBus]Load MiniBus Success',
   props<{ miniBusData: ApiBusLine[] }>()
 );
 
 export const MiniBussFailure = createAction(
-  '[MiniBus] Dados da API não buscados',
+  '[MiniBus] Load MiniBus Failure',
   props<{ error: string }>()
 );
