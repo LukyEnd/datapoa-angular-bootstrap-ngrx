@@ -13,10 +13,10 @@
     <a [routerLink]="['/minibus']" routerLinkActive="router-link-active" class="btnMenuMiniBus btn btn-outline-info"><i
         class="fas fa-shuttle-van"></i> Lotação</a>
   </div>
-  <div class="changeTheme" *ngIf="changeTheme == 'dark-theme'">
+  <div class="changeTheme" *ngIf="changeTheme === 'dark-theme'">
     <button (click)="themeLight()" class="btnMenuTheme btn btn-outline-info">Tema Claro</button>
   </div>
-  <div class="changeTheme" *ngIf="changeTheme == 'light-theme'">
+  <div class="changeTheme" *ngIf="changeTheme === 'light-theme'">
     <button (click)="themeDark()" class="btnMenuTheme btn btn-outline-info">Tema Escuro</button>
   </div>
 </div>

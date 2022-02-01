@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-errors',
@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
     '../shared/css-base/css-base.component.scss',
   ],
 })
-export class ErrorsComponent implements OnInit {
+export class ErrorsComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -47,6 +47,7 @@ export class MiniBusComponent implements OnInit {
     this.tableConfig();
   }
 
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
