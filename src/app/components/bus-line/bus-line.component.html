@@ -21,8 +21,9 @@
       <div class="spinner-border text-danger position-absolute top-50 start-50" *ngIf="isLoading$ | async as isloading">
         <span class="visually-hidden">Loading...</span>
       </div>
-      <div>
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped" *ngIf="!isLoading">
+      <div class="cy-Bus">
+        <!-- *ngIf="!isLoading" -->
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped">
           <thead>
             <tr>
               <th>ID</th>

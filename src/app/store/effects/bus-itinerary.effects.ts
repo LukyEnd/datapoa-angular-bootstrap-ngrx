@@ -29,7 +29,7 @@ export class BusItineraryEffects {
             });
           }),
           catchError((error) => {
-            this.store.dispatch(LoderStatusSuccess({ loading: true }));
+            this.store.dispatch(LoderStatusSuccess({ loading: false }));
             return of(
               BusItineraryActions.loadBusItinerarysFailure({
                 error: ErrorBuilder.genericError(error),

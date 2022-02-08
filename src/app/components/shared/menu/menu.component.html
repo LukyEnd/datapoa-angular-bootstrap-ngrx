@@ -6,14 +6,14 @@
     <h1>DataPoa Rotas</h1>
   </div>
   <div class="divBtnMenu">
-    <a [routerLink]="['/']" type="button" routerLinkActive="router-link-active"
+    <a [routerLink]="['/bus']" type="button" routerLinkActive="router-link-active"
       class="btnMenuBus btn btn-outline-info"><i class="fas fa-bus-alt"></i>
       Ônibus
     </a>
     <a [routerLink]="['/minibus']" routerLinkActive="router-link-active" class="btnMenuMiniBus btn btn-outline-info"><i
         class="fas fa-shuttle-van"></i> Lotação</a>
   </div>
-  <div class="changeTheme">
+  <div class="changeTheme" *ngIf="changeTheme === 'dark-theme'">
     <button (click)="themeLight()" class="btnMenuTheme btn btn-outline-info">Tema Claro</button>
   </div>
   <div class="changeTheme" *ngIf="changeTheme === 'light-theme'">

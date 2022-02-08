@@ -29,7 +29,7 @@ export class MiniBusEffects {
         )
       ),
       catchError((error) => {
-        this.store.dispatch(LoderStatusSuccess({ loading: true }));
+        this.store.dispatch(LoderStatusSuccess({ loading: false }));
         // if (error) {
         //   switch (error.loading) {
         //     case 503:
