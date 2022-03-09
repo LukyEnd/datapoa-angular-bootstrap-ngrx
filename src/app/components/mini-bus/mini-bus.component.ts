@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
 import { Observable, Subject, Subscription } from 'rxjs';
+
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { AppState } from 'src/app/store/state/app.state';
+
 import { BusLineDetail } from '../../services/models/bus-line.model';
 import * as MiniBusActions from '../../store/actions/mini-bus.actions';
 import {
   getLoader,
   getMiniBusError,
   getMiniBusSuccess,
-} from './../../store/selectors/mini-bus.selectors';
+} from '../../store/selectors/mini-bus.selectors';
 
 @Component({
   selector: 'app-mini-bus',

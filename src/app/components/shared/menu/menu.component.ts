@@ -1,9 +1,11 @@
 import { Observable, Subscription } from 'rxjs';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as ChangeTheme from '../../../store/actions/change-theme.actions';
-import { AppState } from './../../../store/state/app.state';
 import { getChangeTheme } from 'src/app/store/selectors/change-theme.selectors';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import * as ChangeTheme from '../../../store/actions/change-theme.actions';
+import { AppState } from '../../../store/state/app.state';
 
 @Component({
   selector: 'app-menu',

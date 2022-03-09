@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+
 import * as Mapboxgl from 'mapbox-gl';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import {
   getBusItineraryError,
@@ -12,6 +14,7 @@ import {
 } from 'src/app/store/selectors/bus-itinerary.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 import { environment } from 'src/environments/environment';
+
 import * as BusItinerary from '../../store/actions/bus-itinerary.actions';
 
 @Component({

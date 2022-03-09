@@ -1,16 +1,19 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
 import { Observable, Subject, Subscription } from 'rxjs';
+
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { getBusLineSuccess } from 'src/app/store/selectors/bus-line.selectors';
 import { AppState } from 'src/app/store/state/app.state';
+
 import { BusLineDetail } from '../../services/models/bus-line.model';
 import * as BusActions from '../../store/actions/bus-line.actions';
 import {
   getBusLineError,
   getLoader,
-} from './../../store/selectors/bus-line.selectors';
+} from '../../store/selectors/bus-line.selectors';
 
 @Component({
   selector: 'app-bus-line',

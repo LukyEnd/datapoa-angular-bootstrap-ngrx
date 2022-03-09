@@ -1,26 +1,37 @@
-import * as busLineAction from '../../actions/bus-line.actions';
-import * as busLineLoading from '../../actions/loading.actions';
-import * as busLineReducer from '../../reducers/bus-line.reducer';
+// import { initialState } from './../change-theme.reducer';
+// import * as busLineAction from '../../actions/bus-line.actions';
+// import * as busLineLoading from '../../actions/loading.actions';
+// import * as busLineReducer from '../../reducers/bus-line.reducer';
 
-describe('BusLine Reducer', () => {
-  it('busLineData should have a busLineData', () => {
-    const action = busLineAction.loadBusLinesSuccess({ busLineData: [] });
-    const state = busLineReducer.busReducer(undefined, action);
+// fdescribe('BusLine Reducer', () => {
+//   it('busLineData should have a busLineData', () => {
+//     const { initialState } = busLineReducer;
 
-    expect(state.busLineData).toEqual([]);
-  });
+//     const action = busLineAction.loadBusLinesSuccess({ busLineData: [] });
+//     const state = busLineReducer.busReducer(initialState, action);
 
-  it('error should be error', () => {
-    const action = busLineAction.loadBusLinesFailure({ error: '' });
-    const state = busLineReducer.busReducer(undefined, action);
+//     expect(state).toBe(initialState);
+//   });
+//   //     it('busLineData should have a busLineData', () => {
+//   //         const { initialState } = busLineReducer.;
 
-    expect(state.error).toEqual('');
-  });
+//   //     const action = busLineAction.loadBusLinesSuccess({ busLineData: [] });
+//   //     const state = busLineReducer.busReducer(undefined, action);
 
-  it('loading should be loading', () => {
-    const action = busLineLoading.LoderStatusSuccess({ loading: true });
-    const state = busLineReducer.busReducer(undefined, action);
+//   //     expect(state.busLineData).toEqual([]);
+//   //   });
 
-    expect(state.loading).toEqual(true);
-  });
-});
+//   //   it('error should be error', () => {
+//   //     const action = busLineAction.loadBusLinesFailure({ error: '' });
+//   //     const state = busLineReducer.busReducer(undefined, action);
+
+//   //     expect(state.error).toEqual('');
+//   //   });
+
+//   //   it('loading should be loading', () => {
+//   //     const action = busLineLoading.LoderStatusSuccess({ loading: true });
+//   //     const state = busLineReducer.busReducer(undefined, action);
+
+//   //     expect(state.loading).toEqual(true);
+//   //   });
+// });

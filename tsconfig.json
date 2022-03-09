@@ -21,6 +21,7 @@
     "module": "es2020",
     "lib": ["es2018", "dom"]
   },
+  "include": ["src/**/*"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
