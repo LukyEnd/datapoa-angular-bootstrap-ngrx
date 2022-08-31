@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-
 import { Observable, Subject, Subscription } from 'rxjs';
-
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import { AppState } from 'src/app/store/state/app.state';
-
-import { BusLineDetail } from '../../services/models/bus-line.model';
-import * as MiniBusActions from '../../store/actions/mini-bus.actions';
+import { BusLineDetail } from '../../models/bus-line.model';
+import * as MiniBusActions from '../../../store/actions/mini-bus.actions';
 import {
   getLoader,
   getMiniBusError,
   getMiniBusSuccess,
-} from '../../store/selectors/mini-bus.selectors';
+} from '../../../store/selectors/mini-bus.selectors';
 
 @Component({
   selector: 'app-mini-bus',
@@ -23,45 +20,40 @@ import {
     '../shared/css-base/css-base.component.scss',
   ],
 })
-export class MiniBusComponent implements OnInit {
-  miniBusLine$!: Observable<BusLineDetail[]>;
-  miniBusLine!: BusLineDetail[];
+export class MiniBusComponent implements OnInit, OnDestroy {
+  public miniBusLine$: Observable<BusLineDetail[]>;
+  public miniBusLine!: BusLineDetail[];
+  public miniBusError$: Observable<string>;
+  public miniBusError!: string;
+  public isLoading$: Observable<boolean>;
 
-  miniBusErro$!: Observable<string>;
-  miniBusErro!: string;
-
-  isLoading$!: Observable<boolean>;
-  isLoading: boolean = false;
-
-  subscription: Subscription[] = [];
-
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
+  public subscription: Subscription[] = [];
+  public dtOptions: DataTables.Settings = {};
+  public dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private router: Router, private store: Store<AppState>) {
     this.miniBusLine$ = this.store.select(getMiniBusSuccess);
-    this.miniBusErro$ = this.store.select(getMiniBusError);
+    this.miniBusError$ = this.store.select(getMiniBusError);
     this.isLoading$ = this.store.select(getLoader);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.actionsPageInitial();
     this.dataMiniBus();
     this.tableConfig();
   }
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
-  actionsPageInitial() {
+  public actionsPageInitial(): void {
     this.store.dispatch(LoderStatus());
     this.store.dispatch(MiniBusActions.MiniBuss());
   }
 
-  dataMiniBus() {
+  public dataMiniBus(): void {
     this.subscription.push(
       this.miniBusLine$.subscribe((data) => {
         this.miniBusLine = data;
@@ -69,19 +61,14 @@ export class MiniBusComponent implements OnInit {
       })
     );
     this.subscription.push(
-      this.miniBusErro$.subscribe((erro) => {
-        this.miniBusErro = erro;
+      this.miniBusError$.subscribe((error) => {
+        this.miniBusError = error;
         this.dtTrigger.next();
-      })
-    );
-    this.subscription.push(
-      this.isLoading$.subscribe((loadin) => {
-        this.isLoading = loadin;
       })
     );
   }
 
-  tableConfig() {
+  public tableConfig(): void {
     this.dtOptions = {
       pageLength: 8,
       language: {
@@ -90,7 +77,9 @@ export class MiniBusComponent implements OnInit {
     };
   }
 
-  setNumberId(id: number) {
-    this.router.navigate(['/itinerary', id]);
+  public setNumberId(id: number): void {
+    this.router.navigate(['/itinerary', id]).then((r) => {
+      return r;
+    });
   }
 }

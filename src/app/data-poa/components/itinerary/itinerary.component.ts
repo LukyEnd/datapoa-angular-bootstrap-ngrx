@@ -1,11 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-
-import * as Mapboxgl from 'mapbox-gl';
+import * as MapboxGL from 'mapbox-gl';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { LoderStatus } from 'src/app/store/actions/loading.actions';
 import {
   getBusItineraryError,
@@ -14,8 +12,7 @@ import {
 } from 'src/app/store/selectors/bus-itinerary.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 import { environment } from 'src/environments/environment';
-
-import * as BusItinerary from '../../store/actions/bus-itinerary.actions';
+import * as BusItinerary from '../../../store/actions/bus-itinerary.actions';
 
 @Component({
   selector: 'app-itinerary',
@@ -26,44 +23,40 @@ import * as BusItinerary from '../../store/actions/bus-itinerary.actions';
   ],
 })
 export class ItineraryComponent implements OnInit, OnDestroy {
-  nameItinerary$!: Observable<string>;
-  nameItinerary!: string;
+  public busItinerary$: Observable<any>;
+  public nameItinerary!: string;
+  public busItineraryError$: Observable<string>;
+  public busItineraryError!: string;
+  public isLoading$: Observable<boolean>;
 
-  busItinerary$!: Observable<any>;
-  busItinerary: { lat: string; lng: string }[] = [];
-
-  busItineraryErro$!: Observable<string>;
-  busItineraryErro!: string;
-
-  isLoading$!: Observable<boolean>;
-  isLoading: boolean = true;
-
-  subscription: Subscription[] = [];
+  public busItinerary: { lat: string; lng: string }[] = [];
+  public subscription: Subscription[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store<AppState>
   ) {
     this.busItinerary$ = this.store.select(getBusItinerarySuccess);
-    this.busItineraryErro$ = this.store.select(getBusItineraryError);
+    this.busItineraryError$ = this.store.select(getBusItineraryError);
     this.isLoading$ = this.store.select(getLoader);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.actionsPageInitial();
     this.dataItinerary();
   }
-  ngOnDestroy(): void {
+
+  public ngOnDestroy(): void {
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
-  actionsPageInitial() {
+  public actionsPageInitial(): void {
     const idBus = this.activatedRoute.snapshot.params.id;
     this.store.dispatch(LoderStatus());
     this.store.dispatch(BusItinerary.loadBusItinerarys({ idBus: idBus }));
   }
 
-  dataItinerary() {
+  public dataItinerary(): void {
     this.subscription.push(
       this.busItinerary$
         .pipe(
@@ -86,8 +79,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
         )
         .subscribe(() => {
           let coordinates = this.busItinerary.map(function (item) {
-            let lngLat = [+item.lng, +item.lat];
-            return lngLat;
+            return [+item.lng, +item.lat];
           });
           this.mapData(coordinates);
           this.busItinerary = [];
@@ -99,23 +91,18 @@ export class ItineraryComponent implements OnInit, OnDestroy {
     );
 
     this.subscription.push(
-      this.busItineraryErro$.subscribe((erro) => {
-        this.busItineraryErro = erro;
-      })
-    );
-    this.subscription.push(
-      this.isLoading$.subscribe((loadin) => {
-        this.isLoading = loadin;
+      this.busItineraryError$.subscribe((error) => {
+        this.busItineraryError = error;
       })
     );
   }
 
-  mapData(lngLat: Array<any>) {
-    (Mapboxgl as any).accessToken = environment.mapTokenKey;
-    const maps = new Mapboxgl.Map({
+  public mapData(lngLat: Array<any>): void {
+    (MapboxGL as any).accessToken = environment.mapTokenKey;
+    const maps = new MapboxGL.Map({
       container: 'maps',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: lngLat[0], // lng, lat
+      center: lngLat[0],
       zoom: 16,
       pitch: 50,
       maxPitch: 68,
@@ -148,14 +135,14 @@ export class ItineraryComponent implements OnInit, OnDestroy {
         },
       });
       for (let key in lngLat) {
-        new Mapboxgl.Marker()
+        new MapboxGL.Marker()
           .setLngLat(lngLat[key])
           .setPopup(
-            new Mapboxgl.Popup({ offset: 25 }).setHTML(
+            new MapboxGL.Popup({ offset: 25 }).setHTML(
               `<a  href= "https://www.google.com/maps/?q=${lngLat[
                 key
-              ].reverse()}" 
-              target="_blank" class="googleMaps"><h6>Ver no Google Maps</h6></a>` // lat, lng
+              ].reverse()}"
+              target="_blank" class="googleMaps"><h6>Ver no Google Maps</h6></a>`
             )
           )
           .addTo(maps);

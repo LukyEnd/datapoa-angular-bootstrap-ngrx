@@ -1,5 +1,5 @@
-import { createReducer, on } from '@ngrx/store';
-import { BusLineDetail } from 'src/app/services/models/bus-line.model';
+import {createReducer, on} from '@ngrx/store';
+import {BusLineDetail} from '../../data-poa/models/bus-line.model';
 import * as LoadStatus from '../actions/loading.actions';
 import * as MiniBusActions from '../actions/mini-bus.actions';
 

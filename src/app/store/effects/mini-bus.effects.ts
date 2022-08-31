@@ -3,11 +3,11 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { ConsultApiService } from 'src/app/services/consult-api.service';
+import { ConsultApiService } from 'src/app/data-poa/services/consult-api.service';
 import { LoderStatusSuccess } from '../actions/loading.actions';
 import * as MiniBusLineActions from '../actions/mini-bus.actions';
-import { ErrorBuilder } from '../builder/erro-builder';
-import { AppState } from './../state/app.state';
+import { ErrorBuilder } from '../../data-poa/builders/error-builder';
+import { AppState } from '../state/app.state';
 
 @Injectable()
 export class MiniBusEffects {

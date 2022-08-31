@@ -1,18 +1,16 @@
 import { Observable, Subscription } from 'rxjs';
 import { getChangeTheme } from 'src/app/store/selectors/change-theme.selectors';
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-
-import * as ChangeTheme from '../../../store/actions/change-theme.actions';
-import { AppState } from '../../../store/state/app.state';
+import * as ChangeTheme from '../../../../store/actions/change-theme.actions';
+import { AppState } from '../../../../store/state/app.state';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss', '../css-base/css-base.component.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss', '../css-base/css-base.component.scss'],
 })
-export class MenuComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
   changeTheme$!: Observable<string>;
   changeTheme: string = 'dark-theme';
 

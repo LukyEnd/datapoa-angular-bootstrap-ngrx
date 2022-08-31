@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { BusItinerary } from '../../services/models/bus-itinerary.model';
+import { BusItinerary } from '../../data-poa/models/bus-itinerary.model';
 import * as BusItineraryActions from '../actions/bus-itinerary.actions';
 import * as LoadStatus from '../actions/loading.actions';
 

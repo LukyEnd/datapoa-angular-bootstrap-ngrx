@@ -1,0 +1,62 @@
+<div class="d-flex flex-column">
+  <h4 class="title mt-3">Linha da Lotação</h4>
+  <hr class="line-main mb-3" />
+</div>
+<div class="container">
+  <div class="divTable row">
+    <div class="col mt-1">
+      <!--      <div class="divError" *ngIf="miniBusErro">-->
+      <!--        <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+      <!--          {{ miniBusErro }}-->
+      <!--          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
+      <!--        </div>-->
+      <!--        <div class="divBtnReturn">-->
+      <!--          <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btnReturnBus btn"><i-->
+      <!--              class="fas fa-bus-alt"></i>-->
+      <!--            Ônibus-->
+      <!--          </a>-->
+      <!--          <a [routerLink]="['/minibus']" class="btnReturnMiniBus btn"><i class="fas fa-shuttle-van"></i> Lotação</a>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <div
+        class="spinner-border text-danger position-absolute top-50 start-50"
+        *ngIf="isLoading$ | async"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="cy-MiniBus">
+        <table
+          datatable
+          aria-describedby="mini-bus-table"
+          [dtOptions]="dtOptions"
+          [dtTrigger]="dtTrigger"
+          class="table table-striped"
+        >
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Código</th>
+              <th>Nome da Linha</th>
+              <th>Itinerário</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let line of miniBusLine">
+              <td>{{ line.id }}</td>
+              <td>{{ line.codigo }}</td>
+              <td>{{ line.nome | titlecase }}</td>
+              <td>
+                <button
+                  (click)="setNumberId(line.id)"
+                  class="btnRoutMiniBus btn btn-outline-info"
+                >
+                  <em class="fas fa-shuttle-van"></em> Ver Rotas
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

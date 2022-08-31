@@ -126,6 +126,7 @@
   },
   "defaultProject": "DataPoa",
   "cli": {
+    "analytics": "136e2196-f66e-46e6-8219-738fe3f8cc09",
     "defaultCollection": "@angular-eslint/schematics"
   }
 }

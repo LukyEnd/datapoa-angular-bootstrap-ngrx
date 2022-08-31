@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './errors.component.html',
   styleUrls: [
     './errors.component.scss',
-    '../shared/css-base/css-base.component.scss',
+    '../css-base/css-base.component.scss',
   ],
 })
 export class ErrorsComponent {
