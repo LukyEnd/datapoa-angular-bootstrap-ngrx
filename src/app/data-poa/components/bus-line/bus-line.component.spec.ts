@@ -1,11 +1,9 @@
 // import { DataTablesModule } from 'angular-datatables';
-// import { BusLineDetail } from 'src/app/services/models/bus-line.model';
-//
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
 // import { MockStore, provideMockStore } from '@ngrx/store/testing';
-//
-// import * as fromBus from '../../store/reducers/bus-line.reducer';
+// import * as fromBus from '../../../store/reducers/bus-line.reducer';
 // import { BusLineComponent } from './bus-line.component';
+// import { BusLineDetail } from '../../models/bus-line.model';
 //
 // describe('Actions/Disparos do BusLineComponent', () => {
 //   let fixture: ComponentFixture<BusLineComponent>;
@@ -21,7 +19,7 @@
 //   };
 //
 //   beforeEach(async () => {
-//     TestBed.configureTestingModule({
+//     await TestBed.configureTestingModule({
 //       declarations: [BusLineComponent],
 //       imports: [DataTablesModule],
 //       providers: [provideMockStore({ initialState })],

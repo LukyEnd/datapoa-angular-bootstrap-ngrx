@@ -1,5 +1,5 @@
 <div id="base-error">
-  <div class="divError">
+  <div class="div-error">
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       {{ busLineError }}
       <button
@@ -9,16 +9,16 @@
         aria-label="Close"
       ></button>
     </div>
-    <div class="divBtnReturn">
+    <div class="div-btn-return">
       <a
         [routerLink]="['/']"
         routerLinkActive="router-link-active"
-        class="btnReturnBus btn"
+        class="btn-return-bus btn"
       >
         <em class="fas fa-bus-alt"></em>
         Ônibus
       </a>
-      <a [routerLink]="['/minibus']" class="btnReturnMiniBus btn">
+      <a [routerLink]="['/minibus']" class="btn-return-mini-bus btn">
         <em class="fas fa-shuttle-van"></em>
         Lotação
       </a>

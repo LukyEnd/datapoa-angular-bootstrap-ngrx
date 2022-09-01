@@ -1,33 +1,47 @@
-<div class="d-flex flex-column">
-</div>
+<div class="d-flex flex-column"></div>
 <div id="container">
-  <div class="divTable row">
+  <div class="div-table row">
     <div class="col mt-2">
-      <div class="divError" *ngIf="busItineraryError">
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <div class="div-error" *ngIf="busItineraryError">
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
           {{ busItineraryError }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
-        <div class="divBtnReturn">
-          <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btnReturnBus btn">
+        <div class="div-btn-return">
+          <a
+            [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            class="btn-return-bus btn"
+          >
             <em class="fas fa-bus-alt"></em>
             Ônibus
           </a>
-          <a [routerLink]="['/minibus']" class="btnReturnMiniBus btn">
+          <a [routerLink]="['/minibus']" class="btn-return-mini-bus btn">
             <em class="fas fa-shuttle-van"></em>
             Lotação
           </a>
         </div>
       </div>
-      <div class="spinner-border text-danger position-absolute top-50 start-50" *ngIf="isLoading$ | async">
+      <div
+        class="spinner-border text-danger position-absolute top-50 start-50"
+        *ngIf="isLoading$ | async"
+      >
         <span class="visually-hidden">Loading...</span>
       </div>
       <div>
-        <div class="divMap mx-auto">
-          <h1 class="mapa display-4">Mapa</h1>
+        <div class="div-map mx-auto">
+          <h1 class="map display-4">Mapa</h1>
           <div class="itinerary">
-            <h4 title="Itinerário de/da {{nameItinerary|titlecase}}">Itinerário de/da "{{ nameItinerary | titlecase
-              }}"
+            <h4 title="Itinerário de/da {{ nameItinerary | titlecase }}">
+              Itinerário de/da "{{ nameItinerary | titlecase }}"
             </h4>
           </div>
           <hr class="line-main mb-5" />
