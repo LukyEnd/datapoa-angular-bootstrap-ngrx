@@ -1,0 +1,21 @@
+
+.divBtnReturn,
+.error-actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btnReturnBus,
+.btnReturnMiniBus {
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+.btnReturnBus,
+.btnReturnMiniBus {
+  max-width: 200px;
+}

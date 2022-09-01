@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { BusItinerary } from '../../services/models/bus-itinerary.model';
+import {BusItinerary} from "../../data-poa/models/bus-itinerary.model";
 
 export const loadBusItinerarys = createAction(
   '[BusItinerary] Load BusItinerarys',

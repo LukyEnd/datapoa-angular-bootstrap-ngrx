@@ -15,20 +15,22 @@ import { MiniBusEffects } from './store/effects/mini-bus.effects';
 import { reducers } from './store/reducers/root.reducers';
 import { BusLineComponent } from './data-poa/components/bus-line/bus-line.component';
 import { CssBaseComponent } from './data-poa/components/shared/css-base/css-base.component';
-import { ErrorsComponent } from './data-poa/components/shared/errors/errors.component';
 import { HeaderComponent } from './data-poa/components/shared/header/header.component';
 import { ItineraryComponent } from './data-poa/components/itinerary/itinerary.component';
 import { MiniBusComponent } from './data-poa/components/mini-bus/mini-bus.component';
+import { ErrorUrlComponent } from './data-poa/components/shared/errors/error-url/error-url.component';
+import { ErrorApiComponent } from './data-poa/components/shared/errors/error-api/error-api.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BusLineComponent,
-    ErrorsComponent,
     MiniBusComponent,
     ItineraryComponent,
     HeaderComponent,
     CssBaseComponent,
+    ErrorUrlComponent,
+    ErrorApiComponent,
   ],
   imports: [
     BrowserModule,

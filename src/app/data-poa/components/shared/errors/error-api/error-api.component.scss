@@ -1,0 +1,28 @@
+#base-error {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .divError {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+
+    .divBtnReturn {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+
+      .btnReturnBus,
+      .btnReturnMiniBus {
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+        margin-top: 5px;
+        border-radius: 10px;
+        border: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div id="base-error">
+  <div class="divError">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ busLineError }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="divBtnReturn">
+      <a
+        [routerLink]="['/']"
+        routerLinkActive="router-link-active"
+        class="btnReturnBus btn"
+      >
+        <em class="fas fa-bus-alt"></em>
+        Ônibus
+      </a>
+      <a [routerLink]="['/minibus']" class="btnReturnMiniBus btn">
+        <em class="fas fa-shuttle-van"></em>
+        Lotação
+      </a>
+    </div>
+  </div>
+</div>

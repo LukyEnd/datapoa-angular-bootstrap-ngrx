@@ -6,7 +6,7 @@ export class ErrorBuilder {
       'Desculpe o Transtorno!! Retorne para uma das alternativas Abaixo.';
     switch (error.status) {
       case 200:
-        let error200 = `Aconteceu algum erro com a URL de acesso. Mensagem do Erro: ${error.message}.`;
+        let error200 = `Aconteceu algum erro ao consultar a API. Mensagem do Erro: ${error.message}.`;
         return error200 + message;
       case 400:
         let error400 = `Erro genérico Mensagem do Erro: ${error.message}.`;

@@ -3,36 +3,10 @@ hr {
   border-radius: 30px;
 }
 
-.container {
+#container {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-}
-
-.divError {
-  width: 100%;
-  text-align: center;
-}
-
-.divBtnReturn,
-.error-actions {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.btnReturnBus,
-.btnReturnMiniBus {
-  width: 100%;
-  height: 100%;
-  margin-top: 5px;
-  border-radius: 10px;
-  border: none;
-}
-
-.btnReturnBus,
-.btnReturnMiniBus {
-  max-width: 200px;
 }
 
 .btnRoutBus,
@@ -61,3 +35,6 @@ hr {
   margin-right: 30px;
   margin-top: 5px;
 }
+
+
+

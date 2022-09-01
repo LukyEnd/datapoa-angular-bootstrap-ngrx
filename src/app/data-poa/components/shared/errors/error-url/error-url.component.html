@@ -1,0 +1,24 @@
+<div id="container">
+  <div class="error-template">
+    <div class="info-error">
+      <h2>Desculpe, página não encontrada!</h2>
+      <img
+        src="../../../../../assets/image/error.webp"
+        alt="Error na Página"
+        loading="lazy"
+        width="300"
+      />
+      <h2>Error 404</h2>
+    </div>
+    <div class="error-actions">
+      <button [routerLink]="['/bus']" class="btnErrorBus btn">
+        <em class="fas fa-bus-alt"></em>
+        Ônibus
+      </button>
+      <button [routerLink]="['/minibus']" class="btnErrorMiniBus btn">
+        <em class="fas fa-shuttle-van"></em>
+        Lotação
+      </button>
+    </div>
+  </div>
+</div>

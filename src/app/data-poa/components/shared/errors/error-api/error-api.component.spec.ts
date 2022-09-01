@@ -1,22 +1,23 @@
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { ErrorsComponent } from './errors.component';
-
-// describe('ErrorsComponent', () => {
-//   let component: ErrorsComponent;
-//   let fixture: ComponentFixture<ErrorsComponent>;
-
+// import { ErrorApiComponent } from './error-api.component';
+//
+// describe('ErrorApiComponent', () => {
+//   let component: ErrorApiComponent;
+//   let fixture: ComponentFixture<ErrorApiComponent>;
+//
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [ErrorsComponent],
-//     }).compileComponents();
+//       declarations: [ ErrorApiComponent ]
+//     })
+//     .compileComponents();
 //   });
-
+//
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(ErrorsComponent);
+//     fixture = TestBed.createComponent(ErrorApiComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });
-
+//
 //   it('should create', () => {
 //     expect(component).toBeTruthy();
 //   });
