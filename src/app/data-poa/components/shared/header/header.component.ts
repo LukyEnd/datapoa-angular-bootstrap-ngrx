@@ -11,24 +11,25 @@ import { AppState } from '../../../../store/state/app.state';
   styleUrls: ['./header.component.scss', '../css-base/css-base.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  changeTheme$!: Observable<string>;
-  changeTheme: string = 'dark-theme';
+  public changeTheme$: Observable<string>;
+  public changeTheme: string;
 
-  subscription: Subscription[] = [];
+  public subscription: Subscription[] = [];
 
   constructor(private store: Store<AppState>) {
+    this.changeTheme = 'dark-theme';
     this.changeTheme$ = this.store.select(getChangeTheme);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.dataChangePage();
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.subscription.forEach((interrupted) => interrupted.unsubscribe());
   }
 
-  dataChangePage() {
+  public dataChangePage(): void {
     this.subscription.push(
       this.changeTheme$.subscribe((data) => {
         if (data == 'light-theme') {
@@ -42,11 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
   }
 
-  themeLight(): void {
-    this.store.dispatch(ChangeTheme.loadChangeThemes({ theme: 'light-theme' }));
-  }
-
-  themeDark() {
-    this.store.dispatch(ChangeTheme.loadChangeThemes({ theme: 'dark-theme' }));
+  public selectTheme(select: string): void {
+    this.store.dispatch(ChangeTheme.loadChangeThemes({ theme: select}));
   }
 }

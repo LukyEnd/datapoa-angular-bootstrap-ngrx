@@ -31,15 +31,20 @@
       </button>
     </div>
   </div>
-
   <div class="header-right">
     <div *ngIf="changeTheme === 'dark-theme'">
-      <button (click)="themeLight()" class="btn-theme btn btn-outline-info">
+      <button
+        (click)="selectTheme('light-theme')"
+        class="btn-theme btn btn-outline-info"
+      >
         light
       </button>
     </div>
     <div *ngIf="changeTheme === 'light-theme'">
-      <button (click)="themeDark()" class="btn-theme btn btn-outline-info">
+      <button
+        (click)="selectTheme('dark-theme')"
+        class="btn-theme btn btn-outline-info"
+      >
         dark
       </button>
     </div>

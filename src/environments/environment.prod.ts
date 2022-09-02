@@ -4,6 +4,6 @@ export const environment = {
   urlItinerary:
     'https://www.poatransporte.com.br/php/facades/process.php?a=il&p=',
   mapTokenKey:
-    'pk.eyJ1IjoibHVreWVuZCIsImEiOiJja3lvdWVtb2MwMDl1MnlwZTB5bTY2eXF4In0.A3Gl_7ppd9vHGtrmg3d7Aw',
+    'pk.eyJ1IjoibHVreWVuZCIsImEiOiJjbDdrbDVjNmwxOWJ3M3VxcHFwaGJobTZwIn0.vrx2VJpoVlbvGs7K08eVZw',
   production: true,
 };

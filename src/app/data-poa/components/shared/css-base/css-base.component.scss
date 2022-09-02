@@ -5,8 +5,10 @@ hr {
 
 #container {
   width: 100%;
+  max-width: 95vw;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .btn-rout-bus,
