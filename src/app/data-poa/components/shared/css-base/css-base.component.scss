@@ -22,7 +22,7 @@ hr {
 }
 
 .btnErrorMiniBus,
-.btnErroBus {
+.btnErrorBus {
   width: 100%;
   max-width: 150px;
   border: none;
@@ -38,5 +38,12 @@ hr {
   margin-top: 5px;
 }
 
-
+.flex-column {
+  padding-top: 60px;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 25px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
