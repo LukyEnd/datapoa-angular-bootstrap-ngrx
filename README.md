@@ -36,11 +36,11 @@ Como já falado, este sistema faz consultas de uma API disponibilizada gratuitam
 
 ## ⚙️ Executando os testes
 
-*  Para testes unitários do Angular serão utilizados o Karma e o Jasmine. 
-  *  Execução: "npm run test"
+* Para testes unitários do Angular serão utilizados o Karma e o Jasmine. 
+  * Execução: "npm run test"
 
 * Também será utilizado o Cypress para testes visuais e responsividade. 
-  * Execução: "npm run cypress:ope"n
+  * Execução: "npm run cypress:ope"
 
 ## 🛠️ Construído com
 
@@ -60,16 +60,8 @@ Ferramentas utilizadas para a criação deste projeto:
 * [Angular_CLI] - 12.2.14;
 * [Node] - 14.17.3;
 * [npm] - 6.14.13;
-    --> Para verificar estas 3 versões acima manualmente, basta digitar no terminal do projeto "ng version" ou "ng -v" ou "ng --version";
 
-* [bootstrap] - ^5.1.3;
-* [cypress] - ^9.4.1;
-* [datatables] - ^1.11.3;
-* [mapbox-gl] - ^2.6.1;
-* [karma] - ~6.3.0;
-* [prettier] - ^2.5.1;
-* [typescript] - ~4.3.5
-* [jasmine-core] - ~3.8.0;
+Para verificar as versões manualmente, basta digitar no terminal do projeto "ng version" ou "ng -v" ou "ng --version";
 
 ## ✒️ Autor
 
