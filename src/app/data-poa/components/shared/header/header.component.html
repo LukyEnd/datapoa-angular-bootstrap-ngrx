@@ -1,0 +1,52 @@
+<div id="div-header">
+  <div class="header-left">
+    <div class="div-img-bus">
+      <img
+        alt="Ônibus"
+        src="../../../../../assets/image/bus6.webp"
+        loading="lazy"
+        width="40"
+      />
+    </div>
+    <div class="title-menu">
+      <h1>DataPoa</h1>
+    </div>
+    <div class="div-btn-menu">
+      <button
+        [routerLink]="['/bus']"
+        type="button"
+        routerLinkActive="router-link-active"
+        class="btn btn-outline-info"
+      >
+        <em class="fas fa-bus-alt"></em>
+        Ônibus
+      </button>
+      <button
+        [routerLink]="['/minibus']"
+        routerLinkActive="router-link-active"
+        class="btn btn-outline-info"
+      >
+        <em class="fas fa-shuttle-van"></em>
+        Lotação
+      </button>
+    </div>
+  </div>
+  <div class="header-right">
+    <div *ngIf="changeTheme === 'dark-theme'">
+      <button
+        (click)="selectTheme('light-theme')"
+        class="btn-theme btn btn-outline-info"
+      >
+        light
+      </button>
+    </div>
+    <div *ngIf="changeTheme === 'light-theme'">
+      <button
+        (click)="selectTheme('dark-theme')"
+        class="btn-theme btn btn-outline-info"
+      >
+        dark
+      </button>
+    </div>
+  </div>
+</div>

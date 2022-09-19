@@ -1,0 +1,25 @@
+<div id="container">
+  <div *ngIf="busItineraryError">
+    <app-error-api [busLineError]="busItineraryError"></app-error-api>
+  </div>
+  <div class="base-itinerary">
+    <div
+      class="spinner-border text-danger position-absolute top-50 start-50"
+      *ngIf="isLoading$ | async"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="div-map mx-auto">
+      <h2 class="map mt-2 display-4">Mapa</h2>
+      <div class="itinerary-text">
+        <h4 title="Itinerário de/da {{ nameItinerary | titlecase }}">
+          Itinerário de/da "{{ nameItinerary | titlecase }}"
+        </h4>
+      </div>
+      <hr class="line-main mt-1 mb-3" />
+      <div class="div-map">
+        <div id="maps"></div>
+      </div>
+    </div>
+  </div>
+</div>

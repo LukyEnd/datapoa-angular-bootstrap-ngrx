@@ -1,0 +1,49 @@
+hr {
+  height: 3px;
+  border-radius: 30px;
+}
+
+#container {
+  width: 100%;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn-rout-bus,
+.btn-rout-mini-bus {
+  width: 100%;
+  min-width: 150px;
+  max-width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  padding-top: 1px;
+}
+
+.btnErrorMiniBus,
+.btnErrorBus {
+  width: 100%;
+  max-width: 150px;
+  border: none;
+}
+
+.fas {
+  margin-right: 10px;
+}
+
+.title {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 5px;
+}
+
+.flex-column {
+  padding-top: 60px;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 25px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+

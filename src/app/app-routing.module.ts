@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BusLineComponent } from './components/bus-line/bus-line.component';
-import { ErrorsComponent } from './components/errors/errors.component';
-import { ItineraryComponent } from './components/itinerary/itinerary.component';
-import { MiniBusComponent } from './components/mini-bus/mini-bus.component';
+import { BusLineComponent } from './data-poa/components/bus-line/bus-line.component';
+import { MiniBusComponent } from './data-poa/components/mini-bus/mini-bus.component';
+import { ItineraryComponent } from './data-poa/components/itinerary/itinerary.component';
+import { ErrorUrlComponent } from './data-poa/components/shared/errors/error-url/error-url.component';
 
 const routes: Routes = [
-  { path: '', component: BusLineComponent },
+  { path: 'bus', component: BusLineComponent },
   { path: 'itinerary/:id', component: ItineraryComponent },
   { path: 'minibus', component: MiniBusComponent },
-  { path: '**', component: ErrorsComponent },
+  { path: '**', component: ErrorUrlComponent },
 ];
 
 @NgModule({

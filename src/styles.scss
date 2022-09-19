@@ -1,45 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/containers";
+
+//Theme
+body.light-theme {
+  --text-color: #222;
+  --bkg-color: #fff;
+  --bkg-color-header: #ced4da;
+  --btn-txt-color: white;
+  --btn-bg-color: rgb(11, 88, 160);
+  --border-color-um: 0 0 0 2px #ced4da;
+  --border-color-dois: 0 0 0 20px rgb(50, 50, 50);
+  --bs-table-color: #dadfe4;
+}
+
 body {
-  background-color: black !important;
+  --text-color: #eee;
+  --bkg-color: #252222;
+  --bkg-color-header: rgb(50, 50, 50);
+  --btn-txt-color: rgb(46, 43, 43);
+  --btn-bg-color: rgb(20, 211, 195);
+  --border-color-um: 0 0 0 2px rgb(50, 50, 50);
+  --border-color-dois: 0 0 0 20px #ced4da;
+  --bs-table-color: #323539;
 }
 
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  color: var(--text-color);
+}
+
+tr:nth-child(odd) > th {
+  background-color: var(--bs-table-color);
+}
+
+td,
+th {
+  background-color: var(--bs-table-color) !important;
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--bkg-color);
+}
+
+h1,
+h2,
+h4,
+p {
+  font-family: Foco, serif;
+  color: var(--text-color);
+}
+
+h6 {
+  color: black !important;
+}
+
+hr {
+  background-color: var(--btn-bg-color) !important;
+}
+
+button,
+.btn {
+  color: var(--btn-txt-color);
+  background-color: var(--btn-bg-color);
+}
+
+#div-header {
+  background-color: var(--bkg-color-header);
+}
+
+//color table
 label {
-  color: white;
+  color: var(--text-color);
 }
 
-option {
-  color: rgb(0, 0, 0) !important;
-}
-
+option,
 input {
-  color: white !important;
+  color: var(--text-color) !important;
+}
+
+th.sorting::after,
+th.sorting::before {
+  color: var(--bs-table-color);
+}
+
+.table table-striped {
+  color: var(--text-color) !important;
 }
 
 .dataTables_info {
-  color: white !important;
+  color: var(--text-color) !important;
 }
 
 .form-select-sm {
-  color: white !important;
+  background-color: var(--bkg-color) !important;
+  color: var(--text-color) !important;
   width: 60px !important;
 }
 
+.dataTables_wrapper {
+  background-color: var(--bkg-color);
+}
+
 .flex-column {
-  color: white;
-  padding-top: 5px;
-  padding-left: 20%;
-  padding-right: 20%;
-  background: black;
-  font-size: 25px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bkg-color);
+}
+
+.paginate_button {
+  background-color: black !important;
+}
+
+//color Map
+.googleMaps {
+  color: var(--text-color);
+}
+
+#maps {
+  box-shadow: var(--border-color-um), var(--border-color-dois) !important;
+}
+
+//Format Table
+div .col {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.page-link {
+  color: var(--text-color) !important;
+  background-color: var(--bkg-color) !important;
+}
+
+.page-link:hover {
+  border: 1px solid var(--btn-bg-color);
+  background-color: var(--btn-bg-color) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border-radius: 5px !important;
+  border: 1px solid var(--btn-bg-color) !important;
 }
 
 .page-item {
-  padding: 2px !important;
+  padding: 0 !important;
 }
 
-.dataTables_info {
-  width: 100% !important;
-  max-width: 230px !important;
+:root {
+  --bs-body-line-height: 1;
 }

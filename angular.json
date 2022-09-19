@@ -111,12 +111,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "defaultProject": "DataPoa",
   "cli": {
-    "defaultCollection": "@ngrx/schematics"
+    "analytics": "136e2196-f66e-46e6-8219-738fe3f8cc09",
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }

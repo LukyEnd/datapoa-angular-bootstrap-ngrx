@@ -1,0 +1,54 @@
+<div id="container">
+  <div class="d-flex flex-column">
+    <h2 class="title mt-4">Linha da Lotação</h2>
+    <hr class="line-main mt-1 mb-4" />
+  </div>
+  <div class="div-table row">
+    <div class="col mt-1">
+      <div *ngIf="miniBusError">
+        <app-error-api [busLineError]="miniBusError"></app-error-api>
+      </div>
+      <div *ngIf="!miniBusError">
+        <div
+          class="spinner-border text-danger position-absolute top-50 start-50"
+          *ngIf="isLoading$ | async"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="cy-mini-bus">
+          <table
+            datatable
+            aria-describedby="mini-bus-table"
+            [dtOptions]="dtOptions"
+            [dtTrigger]="dtTrigger"
+            class="table table-striped"
+          >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Nome da Linha</th>
+                <th>Itinerário</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let line of miniBusLine">
+                <td>{{ line.id }}</td>
+                <td>{{ line.codigo }}</td>
+                <td>{{ line.nome | titlecase }}</td>
+                <td>
+                  <button
+                    (click)="setNumberId(line.id)"
+                    class="btn-rout-mini-bus btn btn-outline-info"
+                  >
+                    <em class="fas fa-shuttle-van"></em> Ver Rotas
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

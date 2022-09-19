@@ -1,19 +1,20 @@
-import { createReducer, on } from '@ngrx/store';
-import { ApiBusLine } from 'src/app/services/models/bus-line.model';
+import {createReducer, on} from '@ngrx/store';
+import {BusLineDetail} from '../../data-poa/models/bus-line.model';
+import * as LoadStatus from '../actions/loading.actions';
 import * as MiniBusActions from '../actions/mini-bus.actions';
 
 export const miniBusFeatureKey = 'miniBus';
 
 export interface MiniBusState {
-  miniBusList: ApiBusLine[];
+  miniBusData: BusLineDetail[];
   error: string;
-  loader: boolean;
+  loading: boolean;
 }
 
 export const initialState: MiniBusState = {
-  miniBusList: [],
+  miniBusData: [],
   error: '',
-  loader: false,
+  loading: true,
 };
 
 export const miniBusReducer = createReducer(
@@ -21,15 +22,21 @@ export const miniBusReducer = createReducer(
   on(MiniBusActions.MiniBussSuccess, (state, action): MiniBusState => {
     return {
       ...state,
+      miniBusData: action.miniBusData,
       error: '',
-      miniBusList: action.miniBusList,
     };
   }),
   on(MiniBusActions.MiniBussFailure, (state, action): MiniBusState => {
     return {
       ...state,
+      miniBusData: [],
       error: action.error,
-      miniBusList: [],
+    };
+  }),
+  on(LoadStatus.LoderStatusSuccess, (state, action): MiniBusState => {
+    return {
+      ...state,
+      loading: action.loading,
     };
   })
 );

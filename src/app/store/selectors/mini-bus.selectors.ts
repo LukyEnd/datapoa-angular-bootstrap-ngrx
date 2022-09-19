@@ -6,17 +6,17 @@ export const selectMiniBusState =
     fromMiniBus.miniBusFeatureKey
   );
 
-export const getMiniBusLineSuccess = createSelector(
+export const getMiniBusSuccess = createSelector(
   selectMiniBusState,
-  (state) => state.miniBusList
+  (state) => state.miniBusData
 );
 
-export const getMiniBusLineError = createSelector(
+export const getMiniBusError = createSelector(
   selectMiniBusState,
   (state) => state.error
 );
 
 export const getLoader = createSelector(
   selectMiniBusState,
-  (state) => state.loader
+  (state) => state.loading
 );

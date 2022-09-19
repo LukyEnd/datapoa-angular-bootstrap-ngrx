@@ -7,7 +7,7 @@ export const selectBusLineState = createFeatureSelector<fromBusLine.BusState>(
 
 export const getBusLineSuccess = createSelector(
   selectBusLineState,
-  (state) => state.busLineList
+  (state) => state.busLineData
 );
 
 export const getBusLineError = createSelector(
@@ -17,5 +17,5 @@ export const getBusLineError = createSelector(
 
 export const getLoader = createSelector(
   selectBusLineState,
-  (state) => state.loader
+  (state) => state.loading
 );
