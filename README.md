@@ -9,9 +9,9 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 ### 📋 Pré-requisitos
 
 Um Editor ou IDE, como: 
-  -> [VSCode](https://code.visualstudio.com/download)
-  -> [intellij](https://www.jetbrains.com/pt-br/idea/download/#section=windows)
-  -> [Webstorm](https://www.jetbrains.com/webstorm/download/?source=google&medium=cpc&campaign=9641686251&term=webstorm&gclid=CjwKCAjwpqCZBhAbEiwAa7pXeS7DDLCEz2MetJy2zD2jhcLXXQ1lbeq-61EVRwdyPTmbH9UXICr7hBoCBlgQAvD_BwE#section=windows)
+  -> [VSCode](https://code.visualstudio.com/download);
+  -> [intellij](https://www.jetbrains.com/pt-br/idea/download/#section=windows);
+  -> [Webstorm](https://www.jetbrains.com/webstorm/download/?source=google&medium=cpc&campaign=9641686251&term=webstorm&gclid=CjwKCAjwpqCZBhAbEiwAa7pXeS7DDLCEz2MetJy2zD2jhcLXXQ1lbeq-61EVRwdyPTmbH9UXICr7hBoCBlgQAvD_BwE#section=windows);
 
 Instalar [NodeJS_LTS]: https://nodejs.org/en/download/
 
