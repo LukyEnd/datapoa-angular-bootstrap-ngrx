@@ -9,36 +9,38 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 ### 📋 Pré-requisitos
 
 Um Editor ou IDE, como: 
-  * [VSCode](https://code.visualstudio.com/download);
-  * [intellij](https://www.jetbrains.com/pt-br/idea/download/#section=windows);
+  * [VSCode](https://code.visualstudio.com/download); <br>
+  ou
+  * [intellij](https://www.jetbrains.com/pt-br/idea/download/#section=windows);<br>
+  ou
   * [Webstorm](https://www.jetbrains.com/webstorm/download/?source=google&medium=cpc&campaign=9641686251&term=webstorm&gclid=CjwKCAjwpqCZBhAbEiwAa7pXeS7DDLCEz2MetJy2zD2jhcLXXQ1lbeq-61EVRwdyPTmbH9UXICr7hBoCBlgQAvD_BwE#section=windows);
 
-Instalar [NodeJS_LTS](https://nodejs.org/en/download/) 14 ou superior
+Instalar [NodeJS_LTS](https://nodejs.org/en/download/) 14 ou superior;
 
-Instalar [Angular_CLI] 12 ou superior - "npm install -g @angular/cli" 
+Instalar [Angular_CLI](https://angular.io/cli) 12 ou superior - "npm install -g @angular/cli";
 
-## 📌 Versão Utilizadas nesse Projeto
+### 📌 Versão Utilizadas nesse Projeto
 
-* [Angular_CLI] - 12.2.14;
-* [Node] - 14.17.3;
-* [npm] - 6.14.13;
+* Angular_CLI - 12.2.14;
+* Node - 14.17.3;
+* npm - 6.14.13;
 
-Para verificar as versões manualmente, basta digitar no terminal do projeto "ng version" ou "ng -v" ou "ng --version";
+Para verificar as versões manualmente, basta digitar no terminal do projeto "ng version" ou "ng -v" ou "ng --version". Funcionará somente após instalação do Angular CLI;
 
 ### 🔧 Instalação do Projeto
 
 Nesta etapa, será explicado passo a passo o que deve ser feito para ter o ambiente de desenvolvimento em execução.
  
-* 1- Clique no botão Verde que tá escrito "CODE" e copie o código HTTPS que aparecer;
-* 2- Em sua máquina Crie uma pasta, de preferência no começo do disco. Exemplo: C:/;
-* 3- Dentro da nova pasta criada, clique na aba locais anteriores e digite CMD;
-* 4- Na aba que abriu digite "git clone (e adicione a url HTTPS que foi copiada, sem os parênteses)"
-    Exemplo: "git clone https://github...";
-* 5- Abra a nova pasta criada com o editor que foi instalado;
-* 6- Abra o terminal do editor e digite "npm i" ou "npm install";
-* 7- Após a instalação digite "npm run start" ou "ng server";
-* 8- Abra o navegador, de preferência em aba anônima, e digite na url "http://localhost:4200/" ou observe qual porta do localhost foi disponibilizada no Terminal do Editor;
-* 9- Após estes passos, o ambiente deverá estar funcionando perfeitamente.
+**1- Clique no botão Verde que tá escrito "CODE" e copie o código HTTPS que aparecer;<br>
+**2- Em sua máquina Crie uma pasta, de preferência no começo do disco. Exemplo: C:/;<br>
+**3- Dentro da nova pasta criada, clique na aba locais anteriores e digite CMD;<br>
+**4- Na aba que abriu digite "git clone (e adicione a url HTTPS que foi copiada, sem os parênteses)"<br>
+    Exemplo: "git clone https://github...";<br>
+**5- Abra a nova pasta criada com o editor que foi instalado;<br>
+**6- Abra o terminal do editor e digite "npm i" ou "npm install";<br>
+**7- Após a instalação digite "npm run start" ou "ng server";<br>
+8- Abra o navegador, de preferência em aba anônima, e digite na url "http://localhost:4200/" ou observe qual porta do localhost foi disponibilizada no Terminal do Editor;<br>
+9- Após estes passos, o ambiente deverá estar funcionando perfeitamente.<br>
 
 Como já falado, este sistema faz consultas de uma API disponibilizada gratuitamente na internet a qual possui dados de todos os ônibus e lotações de Porto Alegre, podendo assim, consultar várias informações de cada transporte, como o ID, Código, Nome da Linha e qual rota ele realiza. Caso o usuário deseje ver a rota de um transporte em específico, é só clicar no botão "Ver rotas" localizado na Aba da tabela chamada "itinerário", assim será gerado um mapa automaticamente, utilizando MAPBOX (uma plataforma de geolocalização). Com isto, mostrará o mapa com a linha do percurso ao ser traçado. Possue a opção de clicar na coordenada desejada e ser redirecionado para o google maps a qual se pode ver com mais detalhes informações das ruas, utilizar a câmera por satélite ou ver fotos do lugar.
 
