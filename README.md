@@ -13,9 +13,17 @@ Um Editor ou IDE, como:
   * [intellij](https://www.jetbrains.com/pt-br/idea/download/#section=windows);
   * [Webstorm](https://www.jetbrains.com/webstorm/download/?source=google&medium=cpc&campaign=9641686251&term=webstorm&gclid=CjwKCAjwpqCZBhAbEiwAa7pXeS7DDLCEz2MetJy2zD2jhcLXXQ1lbeq-61EVRwdyPTmbH9UXICr7hBoCBlgQAvD_BwE#section=windows);
 
-Instalar [NodeJS_LTS]: https://nodejs.org/en/download/
+Instalar [NodeJS_LTS](https://nodejs.org/en/download/) 14 ou superior
 
-Instalar [Angular_CLI]: npm install -g @angular/cli
+Instalar [Angular_CLI](npm install -g @angular/cli) 12 ou superior
+
+## 📌 Versão Utilizadas nesse Projeto
+
+* [Angular_CLI] - 12.2.14;
+* [Node] - 14.17.3;
+* [npm] - 6.14.13;
+
+Para verificar as versões manualmente, basta digitar no terminal do projeto "ng version" ou "ng -v" ou "ng --version";
 
 ### 🔧 Instalação do Projeto
 
@@ -54,14 +62,6 @@ Ferramentas utilizadas para a criação deste projeto:
 * [Cypress](https://www.cypress.io/)- Framework para automação de testes end-to-end;
 * [Bootstrap](https://getbootstrap.com/)- Framework front-end que fornece estruturas de CSS para a criação de sites e aplicações;
 * [Prettier](https://prettier.io/)- Formatador de código com suporte a diversos tipos de arquivos.
-
-## 📌 Versão Utilizadas nesse Projeto
-
-* [Angular_CLI] - 12.2.14;
-* [Node] - 14.17.3;
-* [npm] - 6.14.13;
-
-Para verificar as versões manualmente, basta digitar no terminal do projeto "ng version" ou "ng -v" ou "ng --version";
 
 ## ✒️ Autor
 
