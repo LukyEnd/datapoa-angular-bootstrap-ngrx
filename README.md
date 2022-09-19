@@ -1,3 +1,10 @@
+<div align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/LukyEnd/consulta-api-data-poa-angular-ngrx?style=for-the-badge">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/LukyEnd/consulta-api-data-poa-angular-ngrx?style=for-the-badge">
+  <img alt="Relative date" src="https://img.shields.io/date/1642417200?style=for-the-badge">
+  <img alt="GitHub followers" src="https://img.shields.io/github/followers/LukyEnd?style=for-the-badge">
+</div>
+
 # Título do projeto
 
 Consulta da API de Transportes (Ônibus e Lotação) de Porto Alegre. Com o resultado desta consulta, é criado 2 tabelas. Uma das tabelas terá os Ônibus e outra as Lotações. Cada transporte terá a opção de ser gerada sua rota em um Mapa através de coordenadas de latitude e longitude dadas pela própria API.
