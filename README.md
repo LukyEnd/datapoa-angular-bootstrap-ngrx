@@ -23,7 +23,7 @@ Nesta etapa, será explicado passo a passo o que deve ser feito para ter o ambie
  
 * 1- Clique no botão Verde que tá escrito "CODE" e copie o código HTTPS que aparecer;
 * 2- Em sua máquina Crie uma pasta, de preferência no começo do disco. Exemplo: C:/;
-3- Dentro da nova pasta criada, clique na aba locais anteriores e digite CMD;
+**3-** Dentro da nova pasta criada, clique na aba locais anteriores e digite CMD;
 4- Na aba que abriu digite "git clone (e adicione a url HTTPS que foi copiada, sem os parênteses)"
     Exemplo: "git clone https://github...";
 5- Abra a nova pasta criada com o editor que foi instalado;
