@@ -31,16 +31,16 @@ Para verificar as versões manualmente, basta digitar no terminal do projeto "ng
 
 Nesta etapa, será explicado passo a passo o que deve ser feito para ter o ambiente de desenvolvimento em execução.
  
-**1- Clique no botão Verde que tá escrito "CODE" e copie o código HTTPS que aparecer;<br>
-**2- Em sua máquina Crie uma pasta, de preferência no começo do disco. Exemplo: C:/;<br>
-**3- Dentro da nova pasta criada, clique na aba locais anteriores e digite CMD;<br>
-**4- Na aba que abriu digite "git clone (e adicione a url HTTPS que foi copiada, sem os parênteses)"<br>
+**1-** Clique no botão Verde que tá escrito "CODE" e copie o código HTTPS que aparecer;<br>
+**2-** Em sua máquina Crie uma pasta, de preferência no começo do disco. Exemplo: C:/;<br>
+**3-** Dentro da nova pasta criada, clique na aba locais anteriores e digite CMD;<br>
+**4-** Na aba que abriu digite "git clone (e adicione a url HTTPS que foi copiada, sem os parênteses)"<br>
     Exemplo: "git clone https://github...";<br>
-**5- Abra a nova pasta criada com o editor que foi instalado;<br>
-**6- Abra o terminal do editor e digite "npm i" ou "npm install";<br>
-**7- Após a instalação digite "npm run start" ou "ng server";<br>
-8- Abra o navegador, de preferência em aba anônima, e digite na url "http://localhost:4200/" ou observe qual porta do localhost foi disponibilizada no Terminal do Editor;<br>
-9- Após estes passos, o ambiente deverá estar funcionando perfeitamente.<br>
+**5-** Abra a nova pasta criada com o editor que foi instalado;<br>
+**6-** Abra o terminal do editor e digite "npm i" ou "npm install";<br>
+**7-** Após a instalação digite "npm run start" ou "ng server";<br>
+**8-** Abra o navegador, de preferência em aba anônima, e digite na url "http://localhost:4200/" ou observe qual porta do localhost foi disponibilizada no Terminal do Editor;<br>
+**9-** Após estes passos, o ambiente deverá estar funcionando perfeitamente.<br>
 
 Como já falado, este sistema faz consultas de uma API disponibilizada gratuitamente na internet a qual possui dados de todos os ônibus e lotações de Porto Alegre, podendo assim, consultar várias informações de cada transporte, como o ID, Código, Nome da Linha e qual rota ele realiza. Caso o usuário deseje ver a rota de um transporte em específico, é só clicar no botão "Ver rotas" localizado na Aba da tabela chamada "itinerário", assim será gerado um mapa automaticamente, utilizando MAPBOX (uma plataforma de geolocalização). Com isto, mostrará o mapa com a linha do percurso ao ser traçado. Possue a opção de clicar na coordenada desejada e ser redirecionado para o google maps a qual se pode ver com mais detalhes informações das ruas, utilizar a câmera por satélite ou ver fotos do lugar.
 
