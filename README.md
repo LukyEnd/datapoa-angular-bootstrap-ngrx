@@ -15,7 +15,7 @@ Um Editor ou IDE, como:
 
 Instalar [NodeJS_LTS](https://nodejs.org/en/download/) 14 ou superior
 
-Instalar [Angular_CLI](npm install -g @angular/cli) 12 ou superior
+Instalar [Angular_CLI] 12 ou superior - "npm install -g @angular/cli" 
 
 ## 📌 Versão Utilizadas nesse Projeto
 
