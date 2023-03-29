@@ -7,7 +7,7 @@
 
 # Título do projeto
 
-Consulta da API de Transportes (Ônibus e Lotação) de Porto Alegre. Com o resultado desta consulta, é criado 2 tabelas. Uma das tabelas terá os Ônibus e outra as Lotações. Cada transporte terá a opção de ser gerada sua rota em um Mapa através de coordenadas de latitude e longitude dadas pela própria API.
+Consulta da API de Transportes (Ônibus e Lotação) de Porto Alegre. Com o resultado desta consulta, é criado 2 tabelas. Uma das tabelas com os Ônibus e a outra com as Lotações. Cada transporte terá a opção de ser gerada sua rota em um Mapa através de coordenadas de latitude e longitude dadas pela própria API.
 
 ## 🚀 Começando
 

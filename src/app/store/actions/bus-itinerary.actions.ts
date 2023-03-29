@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import {BusItinerary} from "../../data-poa/models/bus-itinerary.model";
+import { Coordinates } from '../../data-poa/models/bus-coordinates';
 
 export const loadBusItinerarys = createAction(
   '[BusItinerary] Load BusItinerarys',
@@ -8,7 +8,12 @@ export const loadBusItinerarys = createAction(
 
 export const loadBusItinerarysSuccess = createAction(
   '[BusItinerary] Load BusItinerarys Success',
-  props<{ infoBus: BusItinerary[] }>()
+  props<{ infoBus: Coordinates[] }>()
+);
+
+export const loadNameBusItinerarys = createAction(
+  '[BusItinerary] Load Name Bus Itinerarys Success',
+  props<{ nameBus: string }>()
 );
 
 export const loadBusItinerarysFailure = createAction(

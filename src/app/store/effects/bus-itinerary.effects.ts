@@ -8,9 +8,12 @@ import * as BusItineraryActions from '../actions/bus-itinerary.actions';
 import { LoderStatusSuccess } from '../actions/loading.actions';
 import { ErrorBuilder } from '../../data-poa/builders/error-builder';
 import { AppState } from '../state/app.state';
+import { TransformObjsArray } from '../../data-poa/components/shared/transform-objs-array';
 
 @Injectable()
 export class BusItineraryEffects {
+  transformObjsArray = new TransformObjsArray();
+
   constructor(
     private actions$: Actions,
     private serv: ConsultApiService,
@@ -24,10 +27,14 @@ export class BusItineraryEffects {
         this.serv.setItinerary(data.idBus).pipe(
           map((infoBus) => {
             this.store.dispatch(LoderStatusSuccess({ loading: false }));
+            let transformArray =
+              this.transformObjsArray.transformArray(infoBus);
+            this.store.dispatch(BusItineraryActions.loadNameBusItinerarys({nameBus: transformArray.nameItinerary }))
             return BusItineraryActions.loadBusItinerarysSuccess({
-              infoBus: infoBus,
+              infoBus: transformArray.arrayInfo,
             });
           }),
+
           catchError((error) => {
             this.store.dispatch(LoderStatusSuccess({ loading: false }));
             return of(

@@ -11,6 +11,11 @@ export const getBusItinerarySuccess = createSelector(
   (state) => state.infoBus
 );
 
+export const getBusNameItinerary = createSelector(
+  selectBusItineraryState,
+  (state) => state.nameBus
+);
+
 export const getBusItineraryError = createSelector(
   selectBusItineraryState,
   (state) => state.error
